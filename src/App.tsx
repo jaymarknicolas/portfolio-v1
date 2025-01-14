@@ -245,6 +245,27 @@ export default function Portfolio() {
                 What People Say
               </h3>
               <RecommendationSlider testimonials={testimonials} />
+              <motion.section
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="mt-8"
+              >
+                <Card className="bg-[#1A1A1A] border-[#2A2A2A]">
+                  <CardHeader>
+                    <CardTitle className="text-white">Beyond Coding</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4 text-lg">
+                    <p className="text-gray-300">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Officia quis, nisi quibusdam quidem impedit iste quisquam
+                      excepturi? Excepturi exercitationem quae mollitia,
+                      voluptatem asperiores quos itaque sunt molestiae placeat
+                      consequuntur aliquam!
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.section>
             </div>
 
             {/* Blog Section */}
