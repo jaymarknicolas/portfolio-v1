@@ -4,29 +4,17 @@ import {
   Mail,
   Github,
   Linkedin,
-  ArrowRight,
   ExternalLink,
 } from "lucide-react";
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { ExperienceTimeline } from "./components/ExperienceTimeline";
-import { RecommendationSlider } from "./components/RecommendationSlider";
-import { BlogCard } from "./components/BlogCard";
-import { TechStack } from "./components/TechStack";
-import { CertificationCard } from "./components/CertificationCard";
-
-import { experiences } from "./data/experiences";
-import { testimonials } from "./data/testimonials";
-import { blogPosts } from "./data/blog-posts";
-import { certifications } from "./data/certifications";
-import { projects } from "./data/projects";
 
 import RootLayout from "./components/RootLayout";
 
-export default function Portfolio() {
+function App() {
   return (
     <RootLayout>
       <div className="min-h-screen bg-[#0A0A0A] text-white">
@@ -35,7 +23,7 @@ export default function Portfolio() {
           <Button
             variant="ghost"
             size="sm"
-            className="text-white hover:text-white hover:bg-white/10  rounded-tl-full rounded-bl-full rounded-tr-md rounded-br-md"
+            className="text-white hover:text-white hover:bg-white/10"
           >
             <Calendar className="h-4 w-4 mr-2" />
             Schedule a Call
@@ -43,7 +31,7 @@ export default function Portfolio() {
           <Button
             variant="ghost"
             size="sm"
-            className="text-white hover:text-white hover:bg-white/10 rounded-tr-full rounded-br-full"
+            className="text-white hover:text-white hover:bg-white/10"
           >
             <Mail className="h-4 w-4 mr-2" />
             Send Email
@@ -52,12 +40,7 @@ export default function Portfolio() {
 
         <div className="max-w-7xl mx-auto px-4 py-8 grid gap-24  relative z-10">
           {/* Hero Section */}
-          <motion.section
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="pt-16 flex gap-32"
-          >
+          <section className="pt-16 flex gap-32">
             <Card className="bg-[#1A1A1A] border-[#2A2A2A] overflow-hidden basis-1/3 flex flex-col justify-end h-[85%] self-end">
               <img
                 src="http://nick-portfolio.local/wp-content/uploads/2025/01/Profile.png"
@@ -135,7 +118,7 @@ export default function Portfolio() {
                     <div className="w-8 h-8 border-2 border-white/90 flex items-center justify-center mb-8">
                       <span className="text-white">D</span>
                     </div>
-                    <h3 className="font-bold text-white">LOREM IPSUM</h3>
+                    <h3 className="font-bold text-white">DYNAMIC ANIMATION</h3>
                     <p className="text-white/90 text-sm">MOTION DESIGN</p>
                   </CardContent>
                 </Card>
@@ -150,20 +133,15 @@ export default function Portfolio() {
                 </Card>
               </div>
             </div>
-          </motion.section>
+          </section>
 
           {/* About and Tech Stack Section */}
-          <motion.section
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
-          >
+          <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Card className="bg-[#1A1A1A] border-[#2A2A2A]">
               <CardHeader>
                 <CardTitle className="text-white">About</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4 text-lg">
+              <CardContent className="space-y-4">
                 <p className="text-gray-300">
                   Passionate about creating intuitive and engaging user
                   experiences. Specialize in transforming ideas into beautifully
@@ -179,159 +157,143 @@ export default function Portfolio() {
               </CardContent>
             </Card>
 
-            {/* Tech Stack Section */}
             <div>
               <h2 className="text-3xl font-bold text-white mb-6">TECH STACK</h2>
-              <TechStack />
-            </div>
-          </motion.section>
-
-          {/* Experience and Certifications Grid */}
-          <motion.section
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12"
-          >
-            {/* Experience Section */}
-            <div>
-              <h2 className="text-4xl font-bold text-white mb-2">Experience</h2>
-              <div className="mt-12">
-                <ExperienceTimeline experiences={experiences} />
-              </div>
-            </div>
-
-            {/* Certifications Section */}
-            <div>
-              <div className="flex justify-between items-center mb-8">
-                <h2 className="text-4xl font-bold text-white">
-                  Certifications
-                </h2>
-                <Button
-                  variant="ghost"
-                  className="text-[#FF4D00] hover:text-[#FF4D00]/80"
-                >
-                  View All <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </div>
-              <div className="mt-12 space-y-4">
-                {certifications.slice(0, 3).map((cert, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+              <div className="grid grid-cols-3 gap-2">
+                {[
+                  "React",
+                  "Next.js",
+                  "TypeScript",
+                  "Node.js",
+                  "PHP",
+                  "Laravel",
+                  "AWS",
+                  "Docker",
+                  "Tailwind",
+                  "Azure",
+                  "MySQL",
+                  "MongoDB",
+                ].map((tech) => (
+                  <Badge
+                    key={tech}
+                    variant="outline"
+                    className="px-2 py-1 text-sm border-[#2A2A2A] bg-[#1A1A1A] hover:bg-[#2A2A2A] text-gray-300"
                   >
-                    <CertificationCard certification={cert} />
-                  </motion.div>
+                    {tech}
+                  </Badge>
                 ))}
               </div>
             </div>
-          </motion.section>
+          </section>
 
-          {/* Recommendations and Blog Grid */}
-          <motion.section
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12"
-          >
-            {/* Recommendations Section */}
-            <div>
-              <h2 className="text-4xl font-bold text-white mb-2">
-                Recommendations
-              </h2>
-              <h3 className="text-4xl font-bold text-[#4A4A4A] mb-8">
-                What People Say
-              </h3>
-              <RecommendationSlider testimonials={testimonials} />
-            </div>
-
-            {/* Blog Section */}
-            <div>
-              <div className="flex justify-between items-center mb-8">
-                <div>
-                  <h2 className="text-4xl font-bold text-white mb-2">
-                    Recent Blog Posts
-                  </h2>
-                  <h3 className="text-4xl font-bold text-[#4A4A4A]">
-                    Latest Articles
-                  </h3>
-                </div>
-                <Button
-                  variant="ghost"
-                  className="text-[#FF4D00] hover:text-[#FF4D00]/80"
-                >
-                  View All <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </div>
-              <div className="space-y-6">
-                {blogPosts.map((post, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                  >
-                    <BlogCard post={post} />
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.section>
-
-          {/* Recent Projects Section */}
-          <motion.section
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
-          >
-            <div className="flex justify-between items-center mb-8">
-              <div>
-                <h2 className="text-4xl font-bold text-white mb-2">RECENT</h2>
-                <h3 className="text-4xl font-bold text-[#4A4A4A]">PROJECTS</h3>
-              </div>
-              <Button
-                variant="ghost"
-                className="text-[#FF4D00] hover:text-[#FF4D00]/80"
-              >
-                View All <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </div>
+          {/* Experience Section */}
+          <section>
+            <h2 className="text-4xl font-bold text-white mb-2">3 YEARS OF</h2>
+            <h2 className="text-4xl font-bold text-[#4A4A4A] mb-8">
+              EXPERIENCE
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {projects.map((project, index) => (
-                <motion.div
+              {[
+                {
+                  role: "Senior Full-Stack Developer",
+                  company: "Cambridge",
+                  year: "2024",
+                  current: true,
+                },
+                {
+                  role: "Founder",
+                  company: "BASE404",
+                  year: "2023",
+                },
+                {
+                  role: "Chief Technology Officer",
+                  company: "PocketDevs",
+                  year: "2022",
+                },
+                {
+                  role: "Associate Manager",
+                  company: "Bluewind Asia",
+                  year: "2021",
+                },
+                {
+                  role: "Software Engineer",
+                  company: "GCM",
+                  year: "2020",
+                },
+              ].map((experience, index) => (
+                <Card
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-[#1A1A1A] border-[#2A2A2A] hover:bg-[#1A1A1A]/80 transition-colors"
                 >
-                  <Card className="bg-[#1A1A1A] border-[#2A2A2A] hover:bg-[#1A1A1A]/80 transition-colors">
-                    <CardContent className="p-6">
-                      <h3 className="font-bold text-lg text-white">
-                        {project.name}
-                      </h3>
-                      <p className="text-gray-300 mt-1">
-                        {project.description}
-                      </p>
-                      <div className="flex items-center text-[#FF4D00] mt-4 text-sm">
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        {project.url}
+                  <CardContent className="p-6">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <h3 className="font-bold text-lg text-white">
+                          {experience.role}
+                        </h3>
+                        <p className="text-gray-300">{experience.company}</p>
                       </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
+                      <Badge
+                        variant="outline"
+                        className="border-[#2A2A2A] bg-[#2A2A2A] text-gray-300"
+                      >
+                        {experience.year}
+                      </Badge>
+                    </div>
+                  </CardContent>
+                </Card>
               ))}
             </div>
-          </motion.section>
+          </section>
+
+          {/* Recent Projects Section */}
+          <section>
+            <h2 className="text-4xl font-bold text-white mb-2">RECENT</h2>
+            <h2 className="text-4xl font-bold text-[#4A4A4A] mb-8">PROJECTS</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                {
+                  name: "CodeCred",
+                  description: "Online certifications for programmers",
+                  url: "codecred.dev",
+                },
+                {
+                  name: "BASE404",
+                  description: "Online coding bootcamp",
+                  url: "base404.com",
+                },
+                {
+                  name: "Resume Builder",
+                  description: "Harvard style and ATS-friendly resume builder",
+                  url: "resume-builder.bryllim.com",
+                },
+                {
+                  name: "Capstone Generator",
+                  description: "Online capstone generator for IT/CS students",
+                  url: "capstone-generator.bryllim.com",
+                },
+              ].map((project, index) => (
+                <Card
+                  key={index}
+                  className="bg-[#1A1A1A] border-[#2A2A2A] hover:bg-[#1A1A1A]/80 transition-colors"
+                >
+                  <CardContent className="p-6">
+                    <h3 className="font-bold text-lg text-white">
+                      {project.name}
+                    </h3>
+                    <p className="text-gray-300 mt-1">{project.description}</p>
+                    <div className="flex items-center text-[#FF4D00] mt-4 text-sm">
+                      <ExternalLink className="h-4 w-4 mr-2" />
+                      {project.url}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </section>
 
           {/* Contact Section */}
-          <motion.section
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 1 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
-          >
+          <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
               <h2 className="text-4xl font-bold text-white mb-2">LET'S WORK</h2>
               <h2 className="text-4xl font-bold text-[#4A4A4A] mb-8">
@@ -364,14 +326,16 @@ export default function Portfolio() {
                 </form>
               </CardContent>
             </Card>
-          </motion.section>
+          </section>
 
           {/* Footer */}
           <footer className="text-center text-gray-400 text-sm pb-8">
-            © {new Date().getFullYear()} Jay Mark Nicolas. All rights reserved.
+            © 2024 Jay Mark Nicolas. All rights reserved.
           </footer>
         </div>
       </div>
     </RootLayout>
   );
 }
+
+export default App;
