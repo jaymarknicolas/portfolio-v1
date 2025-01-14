@@ -60,7 +60,7 @@ export default function Portfolio() {
           >
             <Card className="bg-[#1A1A1A] border-[#2A2A2A] overflow-hidden basis-1/3 flex flex-col justify-end h-[85%] self-end">
               <img
-                src="http://nick-portfolio.local/wp-content/uploads/2025/01/Profile.png"
+                src="./profile.png"
                 alt="Jay Mark Nicolas"
                 className="w-full object-cover flex-1"
               />
