@@ -2,6 +2,7 @@ interface BlogPost {
   title: string;
   excerpt: string;
   date: string;
+  link: string;
 }
 
 interface BlogCardProps {
@@ -15,9 +16,11 @@ export function BlogCard({ post }: BlogCardProps) {
       <p className="text-gray-300 line-clamp-2">{post.excerpt}</p>
       <div className="flex justify-between items-center">
         <span className="text-sm text-gray-400">{post.date}</span>
-        <button className="text-[#FF4D00] text-sm hover:text-[#FF4D00]/80 transition-colors">
-          Read More →
-        </button>
+        <a href={post.link} target="_blank" rel="noopener noreferrer">
+          <button className="text-[#FF4D00] text-sm hover:text-[#FF4D00]/80 transition-colors">
+            Read More →
+          </button>
+        </a>
       </div>
     </div>
   );
