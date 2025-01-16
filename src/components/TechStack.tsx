@@ -29,7 +29,9 @@ const techStack: TechItem[] = [
   { name: "Angular", icon: <Layout className="w-4 h-4" /> },
   { name: "Prisma ORM", icon: <Cloud className="w-4 h-4" /> },
   { name: "MySQL", icon: <Database className="w-4 h-4" /> },
-  { name: "MongoDB", icon: <Database className="w-4 h-4" /> },
+  { name: "Shopify", icon: <Database className="w-4 h-4" /> },
+  { name: "PostgreSQL", icon: <Database className="w-4 h-4" /> },
+  { name: "CodeIgniter", icon: <Database className="w-4 h-4" /> },
 ];
 
 export function TechStack() {
