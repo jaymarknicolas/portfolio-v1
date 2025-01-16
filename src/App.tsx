@@ -73,22 +73,32 @@ export default function Portfolio() {
                   Cagayan de Oro, Philippines
                 </div>
                 <div className="grid grid-cols-2 gap-2 mt-4">
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="w-full border-[#2A2A2A] hover:bg-white/5 hover:text-white"
+                  <a
+                    href="https://github.com/jaymarknicolas?tab=overview&from=2025-01-01&to=2025-01-16"
+                    target="_blank"
                   >
-                    <Github className="h-4 w-4 mr-2" />
-                    Github
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="w-full border-[#2A2A2A] hover:bg-white/5 hover:text-white"
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="w-full border-[#2A2A2A] hover:bg-white/5 hover:text-white"
+                    >
+                      <Github className="h-4 w-4 mr-2" />
+                      Github
+                    </Button>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/jay-mark-nicolas-157621258/"
+                    target="_blank"
                   >
-                    <Linkedin className="h-4 w-4 mr-2" />
-                    LinkedIn
-                  </Button>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="w-full border-[#2A2A2A] hover:bg-white/5 hover:text-white"
+                    >
+                      <Linkedin className="h-4 w-4 mr-2" />
+                      LinkedIn
+                    </Button>
+                  </a>
                 </div>
               </CardContent>
             </Card>
