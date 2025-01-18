@@ -18,7 +18,11 @@ export function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
             key={index}
             className="relative grid grid-cols-[20px,1fr,auto] items-center gap-4"
           >
-            <div className="w-4 h-4 rounded-full bg-[#1A1A1A] border-2 border-[#2A2A2A] z-10" />
+            <div
+              className={`w-4 h-4 rounded-full ${
+                index === 0 ? "bg-[#FF4D00]" : "bg-[#1A1A1A]"
+              } border-2 border-[#2A2A2A] z-10`}
+            />
             <div>
               <h3 className="text-xl font-bold text-white">{exp.role}</h3>
               <p className="text-gray-300 text-sm">{exp.company}</p>

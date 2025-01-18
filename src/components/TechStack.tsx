@@ -32,6 +32,9 @@ const techStack: TechItem[] = [
   { name: "Shopify", icon: <Database className="w-4 h-4" /> },
   { name: "PostgreSQL", icon: <Database className="w-4 h-4" /> },
   { name: "CodeIgniter", icon: <Database className="w-4 h-4" /> },
+  { name: "Java", icon: <Database className="w-4 h-4" /> },
+  { name: "Spring Boot", icon: <Database className="w-4 h-4" /> },
+  { name: "Python", icon: <Database className="w-4 h-4" /> },
 ];
 
 export function TechStack() {
