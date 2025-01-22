@@ -35,7 +35,7 @@ export default function Portfolio() {
           <Button
             variant="ghost"
             size="sm"
-            className="text-white hover:text-white hover:bg-white/10  rounded-tl-full rounded-bl-full rounded-tr-md rounded-br-md"
+            className="text-white hover:text-white hover:bg-white/10  rounded-tl-full rounded-bl-full rounded-tr-md rounded-br-md "
           >
             <Calendar className="h-4 w-4 mr-2" />
             Schedule a Call
@@ -56,26 +56,32 @@ export default function Portfolio() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="pt-16 flex gap-32"
+            className="pt-16 flex gap-8 flex-col md:flex-row"
           >
-            <Card className="bg-[#1A1A1A] border-[#2A2A2A] overflow-hidden basis-1/3 flex flex-col justify-end h-[85%] self-end">
+            <Card className="md:bg-[#1A1A1A] w-full bg-transparent border-none border-[#2A2A2A] overflow-hidden basis-1/3 flex justify-end h-[85%] self-end flex-row md:flex-col rounded-none md:rounded-lg sm:gap-4">
               <img
                 src="./profile.png"
                 alt="Jay Mark Nicolas"
-                className="w-full object-cover flex-1"
+                className="md:w-full object-cover md:flex-1 w-[100px] sm:w-[150px] rounded-md md:rounded-none"
               />
-              <CardContent className="p-4">
-                <h1 className="font-bold text-xl text-white">
+              <CardContent className="p-2 md:p-4 basis-[60%] flex-1 space-y-2">
+                <h1 className="font-bold text-lg text-white">
                   Jay Mark Nicolas
                 </h1>
-                <div className="flex items-center text-gray-300 text-sm mt-1">
+                <div className="flex items-center text-gray-300 text-xs lg:text-sm mt-1">
                   <MapPin className="h-4 w-4 mr-1" />
                   Cagayan de Oro, Philippines
                 </div>
-                <div className="grid grid-cols-2 gap-2 mt-4">
+                <div className="uppercase space-y-5  md:hidden">
+                  <h2 className="text-xs text-white capitalize">
+                    Software Engineer & Aspiring UX/UI Designer
+                  </h2>
+                </div>
+                <div className="flex gap-2 mt-4 flex-wrap">
                   <a
                     href="https://github.com/jaymarknicolas?tab=overview&from=2025-01-01&to=2025-01-16"
                     target="_blank"
+                    className=" md:flex-1"
                   >
                     <Button
                       size="sm"
@@ -89,6 +95,7 @@ export default function Portfolio() {
                   <a
                     href="https://www.linkedin.com/in/jay-mark-nicolas-157621258/"
                     target="_blank"
+                    className=" md:flex-1"
                   >
                     <Button
                       size="sm"
@@ -103,59 +110,65 @@ export default function Portfolio() {
               </CardContent>
             </Card>
 
-            <div className=" basis-1/3 flex flex-col gap-8 flex-1 space-y-8">
-              <div className="uppercase space-y-5">
-                <h1 className="text-8xl font-bold text-white">
+            <div className=" basis-1/3 flex flex-col gap-8 flex-1 space-y-2 justify-end">
+              <div className="uppercase space-y-2 xl:space-y-5 hidden md:block">
+                <h1 className="text-4xl lg:text-6xl xl:text-8xl font-bold text-white">
                   SOFTWARE
-                  <br />
-                  <span className="text-8xl font-bold text-[#4A4A4A]">
-                    ENGINEER
-                  </span>
+                  <br className="lg:block hidden" />{" "}
+                  <span className=" font-bold text-[#4A4A4A]">ENGINEER</span>
                 </h1>
 
-                <p className="text-gray-300 mt-4 text2xl font-bold tracking-wider">
+                <p className="text-gray-300 mt-4 text-2xl font-bold tracking-wider">
                   <span className="text-[#4A4A4A]"> & </span>
                   ASPIRING
                   <span className="text-[#4A4A4A]"> UX/UI DESIGNER</span>
                 </p>
               </div>
 
-              <div className="grid grid-cols-3 gap-4">
+              <div className="flex flex-wrap justify-between gap-4">
                 <div>
-                  <div className="text-6xl font-bold text-white">+3</div>
-                  <div className="text-sm text-gray-300">
+                  <div className="text-2xl font-bold text-white">+3</div>
+                  <div className="text-xs text-gray-300">
                     Years of Experience
                   </div>
                 </div>
                 <div>
-                  <div className="text-6xl font-bold text-white">+50</div>
-                  <div className="text-sm text-gray-300">
+                  <div className="text-2xl font-bold text-white">+50</div>
+                  <div className="text-xs text-gray-300">
                     Projects Completed
                   </div>
                 </div>
                 <div>
-                  <div className="text-6xl font-bold text-white">+10</div>
-                  <div className="text-sm text-gray-300">Happy Clients</div>
+                  <div className="text-2xl font-bold text-white">+10</div>
+                  <div className="text-xs text-gray-300">Happy Clients</div>
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
-                <Card className="bg-[#FF4D00] border-0 hover:bg-[#FF4D00]/90 transition-colors h-[200px]">
+                <Card className="bg-[#FF4D00] border-0 hover:bg-[#FF4D00]/90 transition-colors  h-fit md:h-[200px]">
                   <CardContent className="p-4">
                     <div className="w-8 h-8 border-2 border-white/90 flex items-center justify-center mb-8">
                       <span className="text-white">D</span>
                     </div>
-                    <h3 className="font-bold text-white">LOREM IPSUM</h3>
-                    <p className="text-white/90 text-sm">MOTION DESIGN</p>
+                    <h3 className="font-bold text-white text-sm md:text-2xl">
+                      LOREM IPSUM
+                    </h3>
+                    <p className="text-white/90  text-xs md:text-sm">
+                      MOTION DESIGN
+                    </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-[#9EFF00] border-0 hover:bg-[#9EFF00]/90 transition-colors h-[200px]">
+                <Card className="bg-[#9EFF00] border-0 hover:bg-[#9EFF00]/90 transition-colors h-fit md:h-[200px]">
                   <CardContent className="p-4 text-black">
                     <div className="w-8 h-8 border-2 border-black flex items-center justify-center mb-8">
                       <span>F</span>
                     </div>
-                    <h3 className="font-bold">FIGMA, PSDAI</h3>
-                    <p className="text-black/90 text-sm">WORDPRESS, REACTJS</p>
+                    <h3 className="font-bold text-sm md:text-2xl">
+                      FIGMA, PSDAI
+                    </h3>
+                    <p className="text-black/90 text-xs md:text-sm">
+                      WORDPRESS, REACTJS
+                    </p>
                   </CardContent>
                 </Card>
               </div>
