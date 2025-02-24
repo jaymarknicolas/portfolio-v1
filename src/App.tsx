@@ -58,16 +58,14 @@ export default function Portfolio() {
             transition={{ duration: 0.5 }}
             className="pt-16 flex gap-8 flex-col md:flex-row"
           >
-            <Card className="md:bg-[#1A1A1A] w-full bg-transparent border-none border-[#2A2A2A] overflow-hidden basis-1/3 flex justify-end h-[85%] self-end flex-row md:flex-col rounded-none md:rounded-lg sm:gap-4">
+            <Card className="md:bg-[#1A1A1A] w-full bg-transparent border-none border-[#2A2A2A] overflow-hidden basis-1/3 flex justify-end h-full self-end flex-row md:flex-col rounded-none md:rounded-lg sm:gap-4">
               <img
                 src="./profile.png"
-                alt="Jay Mark Nicolas"
+                alt="J.M. Nicolas"
                 className="md:w-full object-cover md:flex-1 w-[100px] sm:w-[150px] rounded-md md:rounded-none"
               />
               <CardContent className="p-2 md:p-4 basis-[60%] flex-1 space-y-2">
-                <h1 className="font-bold text-lg text-white">
-                  Jay Mark Nicolas
-                </h1>
+                <h1 className="font-bold text-lg text-white">J.M. Nicolas</h1>
                 <div className="flex items-center text-gray-300 text-xs lg:text-sm mt-1">
                   <MapPin className="h-4 w-4 mr-1" />
                   Cagayan de Oro, Philippines
@@ -127,20 +125,28 @@ export default function Portfolio() {
 
               <div className="flex flex-wrap justify-between gap-4">
                 <div>
-                  <div className="text-2xl font-bold text-white">+3</div>
-                  <div className="text-xs text-gray-300">
+                  <div className="text-2xl lg:text-5xl font-bold text-white">
+                    +3
+                  </div>
+                  <div className="text-xs lg:text-lg text-gray-300">
                     Years of Experience
                   </div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-white">+50</div>
-                  <div className="text-xs text-gray-300">
+                  <div className="text-2xl lg:text-5xl font-bold text-white">
+                    +50
+                  </div>
+                  <div className="text-xs lg:text-lg text-gray-300">
                     Projects Completed
                   </div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-white">+10</div>
-                  <div className="text-xs text-gray-300">Happy Clients</div>
+                  <div className="text-2xl lg:text-5xl font-bold text-white">
+                    +10
+                  </div>
+                  <div className="text-xs lg:text-lg text-gray-300">
+                    Happy Clients
+                  </div>
                 </div>
               </div>
 
@@ -412,7 +418,7 @@ export default function Portfolio() {
 
           {/* Footer */}
           <footer className="text-center text-gray-400 text-sm pb-8">
-            © {new Date().getFullYear()} Jay Mark Nicolas. All rights reserved.
+            © {new Date().getFullYear()} J.M. Nicolas. All rights reserved.
           </footer>
         </div>
       </div>
