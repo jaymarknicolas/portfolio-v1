@@ -38,16 +38,18 @@ export default function Portfolio() {
             className="text-white hover:text-white hover:bg-white/10  rounded-tl-full rounded-bl-full rounded-tr-md rounded-br-md "
           >
             <Calendar className="h-4 w-4 mr-2" />
-            Schedule a Call
+            Download Resume
           </Button>
-          <Button
-            variant="ghost"
-            size="sm"
-            className="text-white hover:text-white hover:bg-white/10 rounded-tr-full rounded-br-full"
-          >
-            <Mail className="h-4 w-4 mr-2" />
-            Send Email
-          </Button>
+          <a href="mailto:jmnicolas4me@gmail.com">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-white hover:text-white hover:bg-white/10 rounded-tr-full rounded-br-full"
+            >
+              <Mail className="h-4 w-4 mr-2" />
+              Send Email
+            </Button>
+          </a>
         </nav>
 
         <div className="max-w-7xl mx-auto px-4 py-8 grid gap-24  relative z-10">
@@ -108,7 +110,7 @@ export default function Portfolio() {
               </CardContent>
             </Card>
 
-            <div className=" basis-1/3 flex flex-col gap-8 flex-1 space-y-2 justify-end">
+            <div className=" basis-1/3 flex flex-col gap-8 flex-1 space-y-2 justify-start">
               <div className="uppercase space-y-2 xl:space-y-5 hidden md:block">
                 <h1 className="text-4xl lg:text-6xl xl:text-8xl font-bold text-white">
                   SOFTWARE
@@ -116,11 +118,11 @@ export default function Portfolio() {
                   <span className=" font-bold text-[#4A4A4A]">ENGINEER</span>
                 </h1>
 
-                <p className="text-gray-300 mt-4 text-2xl font-bold tracking-wider">
+                {/* <p className="text-gray-300 mt-4 text-2xl font-bold tracking-wider">
                   <span className="text-[#4A4A4A]"> & </span>
                   ASPIRING
                   <span className="text-[#4A4A4A]"> UX/UI DESIGNER</span>
-                </p>
+                </p> */}
               </div>
 
               <div className="flex flex-wrap justify-between gap-4">
@@ -134,7 +136,7 @@ export default function Portfolio() {
                 </div>
                 <div>
                   <div className="text-2xl lg:text-5xl font-bold text-white">
-                    +50
+                    +5
                   </div>
                   <div className="text-xs lg:text-lg text-gray-300">
                     Projects Completed
@@ -142,7 +144,7 @@ export default function Portfolio() {
                 </div>
                 <div>
                   <div className="text-2xl lg:text-5xl font-bold text-white">
-                    +10
+                    +5
                   </div>
                   <div className="text-xs lg:text-lg text-gray-300">
                     Happy Clients
@@ -186,30 +188,80 @@ export default function Portfolio() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            className="grid grid-cols-1 lg:grid-cols-5 gap-8"
           >
-            <Card className="bg-[#1A1A1A] border-[#2A2A2A]">
-              <CardHeader>
-                <CardTitle className="text-white">About</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4 text-lg">
-                <p className="text-gray-300">
-                  Passionate about creating intuitive and engaging user
-                  experiences. Specialize in transforming ideas into beautifully
-                  crafted products.
-                </p>
-                <p className="text-gray-300">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Officia quis, nisi quibusdam quidem impedit iste quisquam
-                  excepturi? Excepturi exercitationem quae mollitia, voluptatem
-                  asperiores quos itaque sunt molestiae placeat consequuntur
-                  aliquam!
-                </p>
-              </CardContent>
-            </Card>
+            <motion.section
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="mt-8 space-y-8 col-span-3"
+            >
+              <Card className="bg-[#1A1A1A] border-[#2A2A2A]">
+                <CardHeader>
+                  <CardTitle className="text-white">About</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4 text-lg">
+                  <p className="text-gray-300">
+                    I'm a Full-Stack Software Engineer with expertise in
+                    TypeScript, Tailwind CSS, PostgreSQL, MySQL, Laravel,
+                    WordPress, and Python. I build high-performance, scalable,
+                    and user-friendly web and mobile applications, combining
+                    technical precision with intuitive design. My experience
+                    includes developing custom themes, business solutions, and
+                    modern web applications that enhance usability and
+                    efficiency.
+                  </p>
+                  <p className="text-gray-300">
+                    I have worked on projects such as inventory and POS systems,
+                    job portals, and productivity tools, helping businesses
+                    streamline operations with well-structured and optimized
+                    software. While I have experience with Ionic and React
+                    Native for mobile development, my current focus is on web
+                    applications and crafting seamless digital experiences.
+                  </p>
+                  <p className="text-gray-300">
+                    Lately, I’ve been diving deeper into AI integration,
+                    data-driven development, and UI/UX design, exploring how
+                    emerging technologies can enhance modern applications.
+                    Whether it’s optimizing workflows with AI-powered solutions
+                    or refining user interactions, I’m always looking for new
+                    ways to innovate and push boundaries in tech.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="bg-[#1A1A1A] border-[#2A2A2A]">
+                <CardHeader>
+                  <CardTitle className="text-white">Beyond Coding</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4 text-lg">
+                  <p className="text-gray-300">
+                    Beyond coding, I’ve been focused on self-improvement and
+                    personal growth, reading books like Atomic Habits and The
+                    Mountain Is You to build better habits and a stronger
+                    mindset. I continuously explore UX/UI design, refining my
+                    approach to creating intuitive and engaging digital
+                    experiences. Attending seminars and meetups, like the
+                    WordPress Meetup in Iligan, has helped me expand my network
+                    and stay connected with the tech community. I’m also
+                    exploring new tech stacks and AI while working on portfolio
+                    projects that merge technical excellence with thoughtful
+                    design.
+                  </p>
+                  <p className="text-gray-300">
+                    I enjoy running and hiking, recently exploring Mindamora
+                    Falls and Lampanag Ridge. Now, I’m aiming for bigger
+                    challenges, including some of the top five highest mountains
+                    in the Philippines. Hiking pushes my endurance and
+                    discipline, reinforcing the mindset I bring to both my work
+                    and personal life. It’s a way to disconnect, reset, and find
+                    inspiration in nature while constantly pushing my limits.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.section>
 
             {/* Tech Stack Section */}
-            <div>
+            <div className="col-span-2">
               <h2 className="text-3xl font-bold text-white mb-6">TECH STACK</h2>
               <TechStack />
             </div>
@@ -274,27 +326,6 @@ export default function Portfolio() {
                 What People Say
               </h3>
               <RecommendationSlider testimonials={testimonials} />
-              <motion.section
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="mt-8"
-              >
-                <Card className="bg-[#1A1A1A] border-[#2A2A2A]">
-                  <CardHeader>
-                    <CardTitle className="text-white">Beyond Coding</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4 text-lg">
-                    <p className="text-gray-300">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Officia quis, nisi quibusdam quidem impedit iste quisquam
-                      excepturi? Excepturi exercitationem quae mollitia,
-                      voluptatem asperiores quos itaque sunt molestiae placeat
-                      consequuntur aliquam!
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.section>
             </div>
 
             {/* Blog Section */}
@@ -361,13 +392,17 @@ export default function Portfolio() {
                       <h3 className="font-bold text-lg text-white">
                         {project.name}
                       </h3>
-                      <p className="text-gray-300 mt-1">
+                      <p className="text-gray-300 mt-1 text-base">
                         {project.description}
                       </p>
-                      <div className="flex items-center text-[#FF4D00] mt-4 text-sm">
+                      <a
+                        className="flex items-center text-[#FF4D00] mt-4 text-sm"
+                        href={project.url}
+                        target="_blank"
+                      >
                         <ExternalLink className="h-4 w-4 mr-2" />
                         {project.url}
-                      </div>
+                      </a>
                     </CardContent>
                   </Card>
                 </motion.div>
