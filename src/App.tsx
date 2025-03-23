@@ -25,6 +25,9 @@ import { certifications } from "./data/certifications";
 import { projects } from "./data/projects";
 
 import RootLayout from "./components/RootLayout";
+import CertificationsDrawer from "./components/drawers/CertificationsDrawer";
+import BlogsDrawer from "./components/drawers/BlogsDrawer";
+import ProjectsDrawer from "./components/drawers/ProjectsDrawer";
 
 export default function Portfolio() {
   return (
@@ -57,7 +60,7 @@ export default function Portfolio() {
           </a>
         </nav>
 
-        <div className="max-w-7xl mx-auto px-4 py-8 grid gap-24  relative z-10">
+        <div className="max-w-7xl mx-auto px-4 py-8 grid gap-12  relative z-10">
           {/* Hero Section */}
           <motion.section
             initial={{ opacity: 0, y: 50 }}
@@ -161,13 +164,13 @@ export default function Portfolio() {
                 <Card className="bg-[#FF4D00] border-0 hover:bg-[#FF4D00]/90 transition-colors  h-fit md:h-[200px]">
                   <CardContent className="p-4">
                     <div className="w-8 h-8 border-2 border-white/90 flex items-center justify-center mb-8">
-                      <span className="text-white">D</span>
+                      <span className="text-white">W</span>
                     </div>
                     <h3 className="font-bold text-white text-sm md:text-2xl">
-                      LOREM IPSUM
+                      WORDPRESS
                     </h3>
                     <p className="text-white/90  text-xs md:text-sm">
-                      MOTION DESIGN
+                      In Progress ...
                     </p>
                   </CardContent>
                 </Card>
@@ -176,12 +179,8 @@ export default function Portfolio() {
                     <div className="w-8 h-8 border-2 border-black flex items-center justify-center mb-8">
                       <span>F</span>
                     </div>
-                    <h3 className="font-bold text-sm md:text-2xl">
-                      FIGMA, PSDAI
-                    </h3>
-                    <p className="text-black/90 text-xs md:text-sm">
-                      WORDPRESS, REACTJS
-                    </p>
+                    <h3 className="font-bold text-sm md:text-2xl">FIGMA</h3>
+                    <p className="text-black/90 text-xs md:text-sm">Soon ...</p>
                   </CardContent>
                 </Card>
               </div>
@@ -234,35 +233,6 @@ export default function Portfolio() {
                   </p>
                 </CardContent>
               </Card>
-              <Card className="bg-[#1A1A1A] border-[#2A2A2A]">
-                <CardHeader>
-                  <CardTitle className="text-white">Beyond Coding</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4 text-lg">
-                  <p className="text-gray-300 text-base">
-                    Beyond coding, I’ve been focused on self-improvement and
-                    personal growth, reading books like Atomic Habits and The
-                    Mountain Is You to build better habits and a stronger
-                    mindset. I continuously explore UX/UI design, refining my
-                    approach to creating intuitive and engaging digital
-                    experiences. Attending seminars and meetups, like the
-                    WordPress Meetup in Iligan, has helped me expand my network
-                    and stay connected with the tech community. I’m also
-                    exploring new tech stacks and AI while working on portfolio
-                    projects that merge technical excellence with thoughtful
-                    design.
-                  </p>
-                  <p className="text-gray-300 text-base">
-                    I enjoy running and hiking, recently exploring Mindamora
-                    Falls and Lampanag Ridge. Now, I’m aiming for bigger
-                    challenges, including some of the top five highest mountains
-                    in the Philippines. Hiking pushes my endurance and
-                    discipline, reinforcing the mindset I bring to both my work
-                    and personal life. It’s a way to disconnect, reset, and find
-                    inspiration in nature while constantly pushing my limits.
-                  </p>
-                </CardContent>
-              </Card>
             </motion.section>
 
             {/* Tech Stack Section */}
@@ -271,7 +241,41 @@ export default function Portfolio() {
               <TechStack />
             </div>
           </motion.section>
-
+          <motion.section
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="gap-12"
+          >
+            <Card className="bg-[#1A1A1A] border-[#2A2A2A]">
+              <CardHeader>
+                <CardTitle className="text-white">Beyond Coding</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4 text-lg">
+                <p className="text-gray-300 text-base">
+                  Beyond coding, I’ve been focused on self-improvement and
+                  personal growth, reading books like Atomic Habits and The
+                  Mountain Is You to build better habits and a stronger mindset.
+                  I continuously explore UX/UI design, refining my approach to
+                  creating intuitive and engaging digital experiences. Attending
+                  seminars and meetups, like the WordPress Meetup in Iligan, has
+                  helped me expand my network and stay connected with the tech
+                  community. I’m also exploring new tech stacks and AI while
+                  working on portfolio projects that merge technical excellence
+                  with thoughtful design.
+                </p>
+                <p className="text-gray-300 text-base">
+                  I enjoy running and hiking, recently exploring Mindamora Falls
+                  and Lampanag Ridge. Now, I’m aiming for bigger challenges,
+                  including some of the top five highest mountains in the
+                  Philippines. Hiking pushes my endurance and discipline,
+                  reinforcing the mindset I bring to both my work and personal
+                  life. It’s a way to disconnect, reset, and find inspiration in
+                  nature while constantly pushing my limits.
+                </p>
+              </CardContent>
+            </Card>
+          </motion.section>
           {/* Experience and Certifications Grid */}
           <motion.section
             initial={{ opacity: 0, y: 50 }}
@@ -293,12 +297,9 @@ export default function Portfolio() {
                 <h2 className="text-4xl font-bold text-white">
                   Certifications
                 </h2>
-                <Button
-                  variant="ghost"
-                  className="text-[#FF4D00] hover:text-[#FF4D00]/80"
-                >
-                  View All <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+                {certifications && certifications.length > 3 && (
+                  <CertificationsDrawer />
+                )}
               </div>
               <div className="mt-12 space-y-4">
                 {certifications.slice(0, 3).map((cert, index) => (
@@ -344,15 +345,10 @@ export default function Portfolio() {
                     Latest Articles
                   </h3>
                 </div>
-                <Button
-                  variant="ghost"
-                  className="text-[#FF4D00] hover:text-[#FF4D00]/80"
-                >
-                  View All <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+                {blogPosts && blogPosts.length > 3 && <BlogsDrawer />}
               </div>
               <div className="space-y-6">
-                {blogPosts.map((post, index) => (
+                {blogPosts.slice(0, 3).map((post, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, x: 50 }}
@@ -377,15 +373,10 @@ export default function Portfolio() {
                 <h2 className="text-4xl font-bold text-white mb-2">RECENT</h2>
                 <h3 className="text-4xl font-bold text-[#4A4A4A]">PROJECTS</h3>
               </div>
-              <Button
-                variant="ghost"
-                className="text-[#FF4D00] hover:text-[#FF4D00]/80"
-              >
-                View All <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              {projects && projects.length > 4 && <ProjectsDrawer />}
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {projects.map((project, index) => (
+              {projects.slice(0, 4).map((project, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
