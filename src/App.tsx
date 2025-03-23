@@ -45,7 +45,7 @@ export default function Portfolio() {
               Download Resume
             </Button>
           </a>
-          <a href="mailto:jmnicolas4me@gmail.com">
+          <a href="mailto:jaymarknicolas.dev@gmail.com">
             <Button
               variant="ghost"
               size="sm"
@@ -193,20 +193,20 @@ export default function Portfolio() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="grid grid-cols-1 lg:grid-cols-5 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8"
           >
             <motion.section
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="mt-8 space-y-8 col-span-3"
+              className="mt-8 space-y-8 "
             >
               <Card className="bg-[#1A1A1A] border-[#2A2A2A]">
                 <CardHeader>
                   <CardTitle className="text-white">About</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4 text-lg">
-                  <p className="text-gray-300">
+                  <p className="text-gray-300 text-base">
                     I'm a Full-Stack Software Engineer with expertise in
                     TypeScript, Tailwind CSS, PostgreSQL, MySQL, Laravel,
                     WordPress, and Python. I build high-performance, scalable,
@@ -216,7 +216,7 @@ export default function Portfolio() {
                     modern web applications that enhance usability and
                     efficiency.
                   </p>
-                  <p className="text-gray-300">
+                  <p className="text-gray-300 text-base">
                     I have worked on projects such as inventory and POS systems,
                     job portals, and productivity tools, helping businesses
                     streamline operations with well-structured and optimized
@@ -224,7 +224,7 @@ export default function Portfolio() {
                     Native for mobile development, my current focus is on web
                     applications and crafting seamless digital experiences.
                   </p>
-                  <p className="text-gray-300">
+                  <p className="text-gray-300 text-base">
                     Lately, I’ve been diving deeper into AI integration,
                     data-driven development, and UI/UX design, exploring how
                     emerging technologies can enhance modern applications.
@@ -239,7 +239,7 @@ export default function Portfolio() {
                   <CardTitle className="text-white">Beyond Coding</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4 text-lg">
-                  <p className="text-gray-300">
+                  <p className="text-gray-300 text-base">
                     Beyond coding, I’ve been focused on self-improvement and
                     personal growth, reading books like Atomic Habits and The
                     Mountain Is You to build better habits and a stronger
@@ -252,7 +252,7 @@ export default function Portfolio() {
                     projects that merge technical excellence with thoughtful
                     design.
                   </p>
-                  <p className="text-gray-300">
+                  <p className="text-gray-300 text-base">
                     I enjoy running and hiking, recently exploring Mindamora
                     Falls and Lampanag Ridge. Now, I’m aiming for bigger
                     challenges, including some of the top five highest mountains
@@ -266,7 +266,7 @@ export default function Portfolio() {
             </motion.section>
 
             {/* Tech Stack Section */}
-            <div className="col-span-2">
+            <div className="">
               <h2 className="text-3xl font-bold text-white mb-6">TECH STACK</h2>
               <TechStack />
             </div>
@@ -427,7 +427,7 @@ export default function Portfolio() {
               <h2 className="text-4xl font-bold text-[#4A4A4A] mb-8">
                 TOGETHER
               </h2>
-              <p className="text-gray-300">
+              <p className="text-gray-300 text-base">
                 I'm always open to new opportunities and collaborations. Feel
                 free to reach out if you have a project in mind or just want to
                 connect!
