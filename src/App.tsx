@@ -32,14 +32,19 @@ export default function Portfolio() {
       <div className="min-h-screen bg-[#0A0A0A] text-white">
         {/* Header Navigation */}
         <nav className="fixed top-0 right-4 z-50 flex gap-2 bg-[#1A1A1A]/90 backdrop-blur-sm p-2 rounded-full mt-4">
-          <Button
-            variant="ghost"
-            size="sm"
-            className="text-white hover:text-white hover:bg-white/10  rounded-tl-full rounded-bl-full rounded-tr-md rounded-br-md "
+          <a
+            href="https://drive.google.com/file/d/1Hx8Sc-OQcYnOBSTZXOdH-Ck85G7yV883/view?usp=drive_link"
+            target="_blank"
           >
-            <Calendar className="h-4 w-4 mr-2" />
-            Download Resume
-          </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-white hover:text-white hover:bg-white/10  rounded-tl-full rounded-bl-full rounded-tr-md rounded-br-md "
+            >
+              <Calendar className="h-4 w-4 mr-2" />
+              Download Resume
+            </Button>
+          </a>
           <a href="mailto:jmnicolas4me@gmail.com">
             <Button
               variant="ghost"
