@@ -9,7 +9,7 @@ export const projects = [
     name: "Valencia City Public Employment Services Office System",
     description:
       "Developed a job posting and applicant tracking system using ReactJS, Laravel, and Figma. Designed an accessible and responsive interface, integrated RESTful APIs, and structured a scalable database for efficient employment service management.",
-    url: "test-link.com",
+    url: "https://peso-emis-app.jaymarknicolas.com/",
   },
   {
     name: "X and C Building Construction Monitoring System",
