@@ -15,7 +15,7 @@ export const projects = [
     name: "X and C Building Construction Monitoring System",
     description:
       "A web-based system for tracking and managing construction projects using Laravel, MySQL, JavaScript, jQuery, and DataTables. Provided real-time project monitoring, data visualization, and reporting. Designed with MVC architecture for scalability and maintainability.",
-    url: "test-link.com",
+    url: "https://construction-monitoring.jaymarknicolas.com/",
   },
   {
     name: "WidgetFlow – Customizable Productivity Dashboard",
