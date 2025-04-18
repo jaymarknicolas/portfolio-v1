@@ -8,10 +8,10 @@ export const testimonials = [
   },
   {
     content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, iusto?",
-    author: "Jane Doe",
-    role: "Senior Product Manager",
-    company: "AWS",
+      "I worked with Nick on multiple projects, and he consistently delivered high-quality work with a strong sense of responsibility. He’s a skilled developer who communicates well, collaborates effectively, and approaches challenges with a practical mindset. He’d be a valuable addition to any projects.",
+    author: "Ken Rhomar Olindang",
+    role: "Former Quality Assurance",
+    company: "Syntactics Inc.",
   },
   {
     content:
