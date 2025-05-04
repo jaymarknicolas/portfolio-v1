@@ -21,6 +21,10 @@ import { IoLogoIonic } from "react-icons/io";
 import { FaSass } from "react-icons/fa";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { FaBootstrap } from "react-icons/fa";
+import { GrGraphQl } from "react-icons/gr";
+import { RiSvelteFill } from "react-icons/ri";
+import { SiStorybook } from "react-icons/si";
+import { SiRedux } from "react-icons/si";
 
 interface TechItem {
   name: string;
@@ -28,33 +32,55 @@ interface TechItem {
 }
 
 const techStack: TechItem[] = [
-  { name: "React", icon: <RiReactjsFill className="w-4 h-4" /> },
-  { name: "Next.js", icon: <RiNextjsFill className="w-4 h-4" /> },
-  { name: "TypeScript", icon: <SiTypescript className="w-4 h-4" /> },
-  { name: "Node.js", icon: <FaNodeJs className="w-4 h-4" /> },
-  { name: "PHP", icon: <SiPhp className="w-4 h-4" /> },
-  { name: "Laravel", icon: <FaLaravel className="w-4 h-4" /> },
-  { name: "Wordpress", icon: <FaWordpress className="w-4 h-4" /> },
-  { name: "Wix", icon: <TbBrandWix className="w-4 h-4" /> },
-  { name: "React Native", icon: <TbBrandReactNative className="w-4 h-4" /> },
-  { name: "Angular", icon: <FaAngular className="w-4 h-4" /> },
-  { name: "Prisma ORM", icon: <SiPrisma className="w-4 h-4" /> },
-  { name: "MySQL", icon: <TbBrandMysql className="w-4 h-4" /> },
-  { name: "Shopify", icon: <FaShopify className="w-4 h-4" /> },
-  { name: "PostgreSQL", icon: <DiPostgresql className="w-4 h-4" /> },
-  { name: "CodeIgniter", icon: <DiCodeigniter className="w-4 h-4" /> },
-  { name: "Java", icon: <FaJava className="w-4 h-4" /> },
-  { name: "Spring Boot", icon: <BiLogoSpringBoot className="w-4 h-4" /> },
-  { name: "Python", icon: <FaPython className="w-4 h-4" /> },
-  { name: "Ionic", icon: <IoLogoIonic className="w-4 h-4" /> },
-  { name: "Sass", icon: <FaSass className="w-4 h-4" /> },
-  { name: "Tailwind CSS", icon: <RiTailwindCssFill className="w-4 h-4" /> },
-  { name: "Bootstrap", icon: <FaBootstrap className="w-4 h-4" /> },
+  { name: "React", icon: <RiReactjsFill className="w-4 h-4 max-w-[3rem]" /> },
+  { name: "Next.js", icon: <RiNextjsFill className="w-4 h-4 max-w-[3rem]" /> },
+  {
+    name: "TypeScript",
+    icon: <SiTypescript className="w-4 h-4 max-w-[3rem]" />,
+  },
+  { name: "Node.js", icon: <FaNodeJs className="w-4 h-4 max-w-[3rem]" /> },
+  { name: "PHP", icon: <SiPhp className="w-4 h-4 max-w-[3rem]" /> },
+  { name: "Laravel", icon: <FaLaravel className="w-4 h-4 max-w-[3rem]" /> },
+  { name: "Wordpress", icon: <FaWordpress className="w-4 h-4 max-w-[3rem]" /> },
+  { name: "Wix", icon: <TbBrandWix className="w-4 h-4 max-w-[3rem]" /> },
+  {
+    name: "React Native",
+    icon: <TbBrandReactNative className="w-4 h-4 max-w-[3rem]" />,
+  },
+  { name: "Angular", icon: <FaAngular className="w-4 h-4 max-w-[3rem]" /> },
+  { name: "Prisma ORM", icon: <SiPrisma className="w-4 h-4 max-w-[3rem]" /> },
+  { name: "MySQL", icon: <TbBrandMysql className="w-4 h-4 max-w-[3rem]" /> },
+  { name: "Shopify", icon: <FaShopify className="w-4 h-4 max-w-[3rem]" /> },
+  {
+    name: "PostgreSQL",
+    icon: <DiPostgresql className="w-4 h-4 max-w-[3rem]" />,
+  },
+  {
+    name: "CodeIgniter",
+    icon: <DiCodeigniter className="w-4 h-4 max-w-[3rem]" />,
+  },
+  { name: "Java", icon: <FaJava className="w-4 h-4 max-w-[3rem]" /> },
+  {
+    name: "Spring Boot",
+    icon: <BiLogoSpringBoot className="w-4 h-4 max-w-[3rem]" />,
+  },
+  { name: "Python", icon: <FaPython className="w-4 h-4 max-w-[3rem]" /> },
+  { name: "Ionic", icon: <IoLogoIonic className="w-4 h-4 max-w-[3rem]" /> },
+  { name: "Sass", icon: <FaSass className="w-4 h-4 max-w-[3rem]" /> },
+  {
+    name: "Tailwind CSS",
+    icon: <RiTailwindCssFill className="w-4 h-4 max-w-[3rem]" />,
+  },
+  { name: "Bootstrap", icon: <FaBootstrap className="w-4 h-4 max-w-[3rem]" /> },
+  { name: "GraphQL", icon: <GrGraphQl className="w-4 h-4 max-w-[3rem]" /> },
+  { name: "Svelte", icon: <RiSvelteFill className="w-4 h-4 max-w-[3rem]" /> },
+  { name: "Storybook", icon: <SiStorybook className="w-4 h-4 max-w-[3rem]" /> },
+  { name: "Redux", icon: <SiRedux className="w-4 h-4 max-w-[3rem]" /> },
 ];
 
 export function TechStack() {
   return (
-    <div className="grid grid-cols-3 gap-2">
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
       {techStack.map((tech, index) => (
         <Badge
           key={index}

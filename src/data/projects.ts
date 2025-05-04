@@ -17,10 +17,10 @@ export const projects = [
       "A web-based system for tracking and managing construction projects using Laravel, MySQL, JavaScript, jQuery, and DataTables. Provided real-time project monitoring, data visualization, and reporting. Designed with MVC architecture for scalability and maintainability.",
     url: "https://construction-monitoring.jaymarknicolas.com/",
   },
-  {
-    name: "WidgetFlow – Customizable Productivity Dashboard",
-    description:
-      "A single-page application (SPA) built with Next.js, React, TypeScript, and Tailwind CSS, allowing users to create a personalized workspace with draggable widgets such as a to-do list, Pomodoro timer, and embeddable webpages. Integrated NextAuth for authentication and Prisma with PostgreSQL for data management.",
-    url: "https://widget-flow-snowy.vercel.app/",
-  },
+  // {
+  //   name: "WidgetFlow – Customizable Productivity Dashboard",
+  //   description:
+  //     "A single-page application (SPA) built with Next.js, React, TypeScript, and Tailwind CSS, allowing users to create a personalized workspace with draggable widgets such as a to-do list, Pomodoro timer, and embeddable webpages. Integrated NextAuth for authentication and Prisma with PostgreSQL for data management.",
+  //   url: "https://widget-flow-snowy.vercel.app/",
+  // },
 ];

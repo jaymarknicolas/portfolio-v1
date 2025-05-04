@@ -34,7 +34,7 @@ export default function Portfolio() {
     <RootLayout>
       <div className="min-h-screen bg-[#0A0A0A] text-white">
         {/* Header Navigation */}
-        <nav className="fixed top-0 right-4 z-50 flex gap-2 bg-[#1A1A1A]/90 backdrop-blur-sm p-2 rounded-full mt-4">
+        <nav className="fixed top-0 right-4 z-50 flex gap-2 bg-[#1A1A1A]/90 backdrop-blur-sm p-2 rounded-full mt-4 !text-sm">
           <a
             href="https://drive.google.com/file/d/1Hx8Sc-OQcYnOBSTZXOdH-Ck85G7yV883/view?usp=drive_link"
             target="_blank"
@@ -66,30 +66,40 @@ export default function Portfolio() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="pt-16 flex gap-8 flex-col md:flex-row"
+            className="pt-16 flex gap-8 flex-col "
           >
-            <Card className="md:bg-[#1A1A1A] w-full bg-transparent border-none border-[#2A2A2A] overflow-hidden basis-1/3 flex justify-end h-full self-end flex-row md:flex-col rounded-none md:rounded-lg sm:gap-4">
-              <img
-                src="./profile.png"
-                alt="J.M. Nicolas"
-                className="md:w-full object-cover md:flex-1 w-[100px] sm:w-[150px] rounded-md md:rounded-none"
-              />
-              <CardContent className="p-2 md:p-4 basis-[60%] flex-1 space-y-2">
-                <h1 className="font-bold text-lg text-white">J.M. Nicolas</h1>
-                <div className="flex items-center text-gray-300 text-xs lg:text-sm mt-1">
+            <Card className=" w-full bg-transparent border-none border-[#2A2A2A] overflow-hidden  flex justify-end h-full self-end flex-col  rounded-none sm:flex-row  ">
+              <div
+                style={{
+                  background:
+                    "linear-gradient(220.21deg, #691E02 3.31%, #C24617 63.27%)",
+                }}
+                className="!w-[150px] md:!w-[250px] rounded-2xl overflow-hidden mx-auto "
+              >
+                <img
+                  src="./profile.png"
+                  alt="Jay Mark Nicolas"
+                  className=" object-cover  rounded-md md:rounded-none m-auto translate-y-10"
+                />
+              </div>
+              <CardContent className="p-2 md:p-4 basis-[60%] flex-1 space-y-2 flex flex-col justify-center text-center sm:text-left">
+                <h1 className="font-medium text-lg sm:text-4xl text-white">
+                  Jay Mark Nicolas
+                </h1>
+                <div className="flex items-center text-gray-300 text-sm md:text-lg  mt-1 justify-center sm:justify-start">
                   <MapPin className="h-4 w-4 mr-1" />
                   Cagayan de Oro, Philippines
                 </div>
-                <div className="uppercase space-y-5  md:hidden">
-                  <h2 className="text-xs text-white capitalize">
+                <div className="uppercase my-3 md:!my-5 ">
+                  <h2 className="text-lg md:text-3xl text-white capitalize">
                     Software Engineer & Aspiring UX/UI Designer
                   </h2>
                 </div>
-                <div className="flex gap-2 mt-4 flex-wrap">
+                <div className="flex gap-2 mt-4 flex-wrap max-w-full md:max-w-[475px]">
                   <a
                     href="https://github.com/jaymarknicolas?tab=overview&from=2025-01-01&to=2025-01-16"
                     target="_blank"
-                    className=" md:flex-1"
+                    className=" flex-1"
                   >
                     <Button
                       size="sm"
@@ -103,7 +113,7 @@ export default function Portfolio() {
                   <a
                     href="https://www.linkedin.com/in/jay-mark-nicolas-157621258/"
                     target="_blank"
-                    className=" md:flex-1"
+                    className=" flex-1"
                   >
                     <Button
                       size="sm"
@@ -117,74 +127,6 @@ export default function Portfolio() {
                 </div>
               </CardContent>
             </Card>
-
-            <div className=" basis-1/3 flex flex-col gap-8 flex-1 space-y-2 justify-start">
-              <div className="uppercase space-y-2 xl:space-y-5 hidden md:block">
-                <h1 className="text-4xl lg:text-6xl xl:text-8xl font-bold text-white">
-                  SOFTWARE
-                  <br className="lg:block hidden" />{" "}
-                  <span className=" font-bold text-[#4A4A4A]">ENGINEER</span>
-                </h1>
-
-                {/* <p className="text-gray-300 mt-4 text-2xl font-bold tracking-wider">
-                  <span className="text-[#4A4A4A]"> & </span>
-                  ASPIRING
-                  <span className="text-[#4A4A4A]"> UX/UI DESIGNER</span>
-                </p> */}
-              </div>
-
-              <div className="flex flex-wrap justify-between gap-4">
-                <div>
-                  <div className="text-2xl lg:text-5xl font-bold text-white">
-                    +3
-                  </div>
-                  <div className="text-xs lg:text-lg text-gray-300">
-                    Years of Experience
-                  </div>
-                </div>
-                <div>
-                  <div className="text-2xl lg:text-5xl font-bold text-white">
-                    +5
-                  </div>
-                  <div className="text-xs lg:text-lg text-gray-300">
-                    Projects Completed
-                  </div>
-                </div>
-                <div>
-                  <div className="text-2xl lg:text-5xl font-bold text-white">
-                    +5
-                  </div>
-                  <div className="text-xs lg:text-lg text-gray-300">
-                    Happy Clients
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <Card className="bg-[#FF4D00] border-0 hover:bg-[#FF4D00]/90 transition-colors  h-fit md:h-[200px]">
-                  <CardContent className="p-4">
-                    <div className="w-8 h-8 border-2 border-white/90 flex items-center justify-center mb-8">
-                      <span className="text-white">W</span>
-                    </div>
-                    <h3 className="font-bold text-white text-sm md:text-2xl">
-                      WORDPRESS
-                    </h3>
-                    <p className="text-white/90  text-xs md:text-sm">
-                      In Progress ...
-                    </p>
-                  </CardContent>
-                </Card>
-                <Card className="bg-[#9EFF00] border-0 hover:bg-[#9EFF00]/90 transition-colors h-fit md:h-[200px]">
-                  <CardContent className="p-4 text-black">
-                    <div className="w-8 h-8 border-2 border-black flex items-center justify-center mb-8">
-                      <span>F</span>
-                    </div>
-                    <h3 className="font-bold text-sm md:text-2xl">FIGMA</h3>
-                    <p className="text-black/90 text-xs md:text-sm">Soon ...</p>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
           </motion.section>
 
           {/* About and Tech Stack Section */}

@@ -12,25 +12,25 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
     <>
       <Helmet>
         <html lang="en" />
-        <title>J.M. Nicolas - Software Engineer</title>
+        <title>Jay Mark Nicolas - Software Engineer</title>
         <meta
           name="title"
-          content="J.M. Nicolas - Software Engineer & Aspiring UX/UI Designer"
+          content="Jay Mark Nicolas - Software Engineer & Aspiring UX/UI Designer"
         />
         <meta
           name="description"
-          content="Welcome to the portfolio of J.M. Nicolas, a software engineer and aspiring UX/UI designer based in Cagayan de Oro, Philippines. Explore my projects and experiences."
+          content="Welcome to the portfolio of Jay Mark Nicolas, a software engineer and aspiring UX/UI designer based in Cagayan de Oro, Philippines. Explore my projects and experiences."
         />
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.jaymarknicolas.com/" />
         <meta
           property="og:title"
-          content="J.M. Nicolas - Software Engineer & Aspiring UX/UI Designer"
+          content="Jay Mark Nicolas - Software Engineer & Aspiring UX/UI Designer"
         />
         <meta
           property="og:description"
-          content="Welcome to the portfolio of J.M. Nicolas, a software engineer and aspiring UX/UI designer based in Cagayan de Oro, Philippines. Explore my projects and experiences."
+          content="Welcome to the portfolio of Jay Mark Nicolas, a software engineer and aspiring UX/UI designer based in Cagayan de Oro, Philippines. Explore my projects and experiences."
         />
         <meta
           property="og:image"
@@ -44,11 +44,11 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
         />
         <meta
           property="twitter:title"
-          content="J.M. Nicolas - Software Engineer & Aspiring UX/UI Designer"
+          content="Jay Mark Nicolas - Software Engineer & Aspiring UX/UI Designer"
         />
         <meta
           property="twitter:description"
-          content="Welcome to the portfolio of J.M. Nicolas, a software engineer and aspiring UX/UI designer based in Cagayan de Oro, Philippines. Explore my projects and experiences."
+          content="Welcome to the portfolio of Jay Mark Nicolas, a software engineer and aspiring UX/UI designer based in Cagayan de Oro, Philippines. Explore my projects and experiences."
         />
         <meta
           property="twitter:image"
