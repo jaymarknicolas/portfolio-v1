@@ -36,7 +36,7 @@ export default function Portfolio() {
         {/* Header Navigation */}
         <nav className="fixed top-0 right-4 z-50 flex gap-2 bg-[#1A1A1A]/90 backdrop-blur-sm p-2 rounded-full mt-4 !text-sm">
           <a
-            href="https://drive.google.com/file/d/1Hx8Sc-OQcYnOBSTZXOdH-Ck85G7yV883/view?usp=drive_link"
+            href="https://drive.google.com/file/d/1Tl5C3CGmirK4Y9MnmSPdi_UKoGCU3xrV/view?usp=drive_link"
             target="_blank"
           >
             <Button
