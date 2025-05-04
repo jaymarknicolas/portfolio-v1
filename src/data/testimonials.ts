@@ -13,11 +13,11 @@ export const testimonials = [
     role: "Former Quality Assurance",
     company: "Syntactics Inc.",
   },
-  {
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, iusto?",
-    author: "Bob Doe",
-    role: "Technical Lead",
-    company: "Google",
-  },
+  // {
+  //   content:
+  //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, iusto?",
+  //   author: "Bob Doe",
+  //   role: "Technical Lead",
+  //   company: "Google",
+  // },
 ];

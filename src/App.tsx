@@ -407,7 +407,7 @@ export default function Portfolio() {
           </motion.section>
 
           {/* Contact Section */}
-          <motion.section
+          {/* <motion.section
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1 }}
@@ -445,7 +445,7 @@ export default function Portfolio() {
                 </form>
               </CardContent>
             </Card>
-          </motion.section>
+          </motion.section> */}
 
           {/* Footer */}
           <footer className="text-center text-gray-400 text-sm pb-8">
