@@ -149,9 +149,9 @@ export default function Portfolio() {
                 <CardContent className="space-y-4 text-lg">
                   <p className="text-gray-300 text-base">
                     I'm a Full-Stack Software Engineer with expertise in
-                    TypeScript, Tailwind CSS, PostgreSQL, MySQL, Laravel,
-                    WordPress, and Python. I build high-performance, scalable,
-                    and user-friendly web and mobile applications, combining
+                    Laravel, WordPress, NextJs, React Native, GraphQL and
+                    Python. I build high-performance, scalable, and
+                    user-friendly web and mobile applications, combining
                     technical precision with intuitive design. My experience
                     includes developing custom themes, business solutions, and
                     modern web applications that enhance usability and
@@ -166,12 +166,13 @@ export default function Portfolio() {
                     applications and crafting seamless digital experiences.
                   </p>
                   <p className="text-gray-300 text-base">
-                    Lately, I’ve been diving deeper into AI integration,
-                    data-driven development, and UI/UX design, exploring how
-                    emerging technologies can enhance modern applications.
-                    Whether it’s optimizing workflows with AI-powered solutions
-                    or refining user interactions, I’m always looking for new
-                    ways to innovate and push boundaries in tech.
+                    As a Full-Stack Software Engineer specializing in Next.js, I
+                    primarily focus on building modern, performant web
+                    applications enhanced by AI integration, data-driven
+                    features, and thoughtful UI/UX design. I’m passionate about
+                    leveraging emerging technologies to optimize user
+                    experiences, streamline workflows, and push the boundaries
+                    of frontend development.
                   </p>
                 </CardContent>
               </Card>
