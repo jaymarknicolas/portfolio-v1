@@ -74,7 +74,7 @@ export default function Portfolio() {
                   background:
                     "linear-gradient(220.21deg, #691E02 3.31%, #C24617 63.27%)",
                 }}
-                className="!w-[150px] md:!w-[250px] rounded-2xl overflow-hidden mx-auto "
+                className="!w-[150px] md:!w-[250px] rounded-2xl overflow-hidden mx-auto min-h-[302px] "
               >
                 <img
                   src="./profile.png"
