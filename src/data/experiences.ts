@@ -1,5 +1,10 @@
 export const experiences = [
   {
+    role: "Intermediate Frontend Engineer",
+    company: "Scaleforge",
+    year: "2025",
+  },
+  {
     role: "Web Developer",
     company: "Syntactics Inc.",
     year: "2025",
