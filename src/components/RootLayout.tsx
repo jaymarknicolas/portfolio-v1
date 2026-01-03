@@ -40,7 +40,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
         />
         <meta
           property="og:image"
-          content="https://www.jaymarknicolas.com/profile.png"
+          content="https://www.jaymarknicolas.com/portfolio-v1.webp"
         />
 
         <meta property="twitter:card" content="summary_large_image" />
@@ -58,7 +58,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
         />
         <meta
           property="twitter:image"
-          content="https://www.jaymarknicolas.com/profile.png"
+          content="https://www.jaymarknicolas.com/portfolio-v1.webp"
         />
       </Helmet>
       <div className="bg-background text-foreground font-sans min-h-screen transition-colors">
