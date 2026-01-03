@@ -43,16 +43,16 @@ export function RecommendationSlider({
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -50 }}
           transition={{ duration: 0.5 }}
-          className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-lg p-6 space-y-4"
+          className="bg-foreground/5 dark:bg-[#1A1A1A] border dark:border-[#2A2A2A] rounded-lg p-6 space-y-4"
         >
-          <p className="text-gray-300 italic">
+          <p className="text-gray-700 dark:text-gray-300 italic">
             "{testimonials[currentIndex].content}"
           </p>
           <div>
-            <p className="font-semibold text-white">
+            <p className="font-semibold text-black dark:text-white">
               {testimonials[currentIndex].author}
             </p>
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-gray-600 dark:text-gray-400">
               {testimonials[currentIndex].role} at{" "}
               {testimonials[currentIndex].company}
             </p>
@@ -65,7 +65,7 @@ export function RecommendationSlider({
         className="absolute transition-all group hover:bg-[#FF4D00] top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2"
         onClick={prevSlide}
       >
-        <ChevronLeft className="h-4 w-4 text-black group-hover:text-white" />
+        <ChevronLeft className="h-4 w-4 text-black dark:text-white dark:group-hover:text-white group-hover:text-black" />
       </Button>
       <Button
         variant="outline"
@@ -73,7 +73,7 @@ export function RecommendationSlider({
         className="absolute transition-all group hover:bg-[#FF4D00] top-1/2 right-0 transform -translate-y-1/2 translate-x-1/2"
         onClick={nextSlide}
       >
-        <ChevronRight className="h-4 w-4 text-black group-hover:text-white" />
+        <ChevronRight className="h-4 w-4 text-black dark:text-white dark:group-hover:text-white group-hover:text-black" />
       </Button>
     </div>
   );

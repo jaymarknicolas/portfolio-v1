@@ -4,14 +4,11 @@ import {
   Mail,
   Github,
   Linkedin,
-  ArrowRight,
   ExternalLink,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { ExperienceTimeline } from "./components/ExperienceTimeline";
 import { RecommendationSlider } from "./components/RecommendationSlider";
 import { BlogCard } from "./components/BlogCard";
@@ -29,35 +26,40 @@ import CertificationsDrawer from "./components/drawers/CertificationsDrawer";
 import BlogsDrawer from "./components/drawers/BlogsDrawer";
 import ProjectsDrawer from "./components/drawers/ProjectsDrawer";
 
+import { ThemeToggle } from "./components/ThemeToggle";
+
 export default function Portfolio() {
   return (
     <RootLayout>
-      <div className="min-h-screen bg-[#0A0A0A] text-white">
+      <div className="min-h-screen bg-background text-foreground">
         {/* Header Navigation */}
-        <nav className="fixed top-0 right-4 z-50 flex gap-2 bg-[#1A1A1A]/90 backdrop-blur-sm p-2 rounded-full mt-4 !text-sm">
-          <a
-            href="https://drive.google.com/file/d/1Tl5C3CGmirK4Y9MnmSPdi_UKoGCU3xrV/view?usp=drive_link"
-            target="_blank"
-          >
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-white hover:text-white hover:bg-white/10  rounded-tl-full rounded-bl-full rounded-tr-md rounded-br-md "
+        <nav className="fixed top-0 px-4 z-50 flex mt-4 gap-2 !text-sm justify-end w-full items-center">
+          <div className="right-4 gap-2 bg-background/90 backdrop-blur-sm p-2 rounded-full flex">
+            <a
+              href="https://drive.google.com/file/d/1Tl5C3CGmirK4Y9MnmSPdi_UKoGCU3xrV/view?usp=drive_link"
+              target="_blank"
             >
-              <Calendar className="h-4 w-4 mr-2" />
-              Download Resume
-            </Button>
-          </a>
-          <a href="mailto:jaymarknicolas.dev@gmail.com">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-white hover:text-white hover:bg-white/10 rounded-tr-full rounded-br-full"
-            >
-              <Mail className="h-4 w-4 mr-2" />
-              Send Email
-            </Button>
-          </a>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-black dark:text-white hover:text-dark dark:hover:text-white hover:bg-foreground/10  rounded-tl-full rounded-bl-full rounded-tr-md rounded-br-md "
+              >
+                <Calendar className="h-4 w-4 mr-2" />
+                Download Resume
+              </Button>
+            </a>
+            <a href="mailto:jaymarknicolas.dev@gmail.com">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-black dark:text-white hover:text-dark dark:hover:bg-foreground/10 rounded-tr-full rounded-br-full"
+              >
+                <Mail className="h-4 w-4 mr-2" />
+                Send Email
+              </Button>
+            </a>
+          </div>
+          <ThemeToggle />
         </nav>
 
         <div className="max-w-7xl mx-auto px-4 py-8 grid gap-12  relative z-10">
@@ -66,32 +68,32 @@ export default function Portfolio() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="pt-16 flex gap-8 flex-col "
+            className="pt-16 flex gap-8 flex-col"
           >
-            <Card className=" w-full bg-transparent border-none border-[#2A2A2A] overflow-hidden  flex justify-end h-full self-end flex-col  rounded-none sm:flex-row  ">
+            <Card className=" w-full bg-transparent border-none shadow-none border-[#2A2A2A] overflow-hidden  flex justify-end h-full self-end flex-col  rounded-none sm:flex-row  ">
               <div
                 style={{
                   background:
                     "linear-gradient(220.21deg, #691E02 3.31%, #C24617 63.27%)",
                 }}
-                className="!w-[150px] md:!w-[250px] rounded-2xl overflow-hidden mx-auto "
+                className="w-[250px] !h-[250px] rounded-2xl overflow-hidden mx-auto "
               >
                 <img
-                  src="./profile.png"
+                  src="./portfolio-v1.webp"
                   alt="Jay Mark Nicolas"
-                  className=" object-cover  rounded-md md:rounded-none m-auto translate-y-10"
+                  className=" object-cover  rounded-md md:rounded-none m-auto object-center w-full h-full"
                 />
               </div>
               <CardContent className="p-2 md:p-4 basis-[60%] flex-1 space-y-2 flex flex-col justify-center text-center sm:text-left">
-                <h1 className="font-medium text-lg sm:text-4xl text-white">
+                <h1 className="font-medium text-lg sm:text-4xl  text-blackdark:text-white">
                   Jay Mark Nicolas
                 </h1>
-                <div className="flex items-center text-gray-300 text-sm md:text-lg  mt-1 justify-center sm:justify-start">
+                <div className="flex items-center text-gray-700 dark:text-gray-300 text-sm md:text-lg  mt-1 justify-center sm:justify-start">
                   <MapPin className="h-4 w-4 mr-1" />
                   Cagayan de Oro, Philippines
                 </div>
                 <div className="uppercase my-3 md:!my-5 ">
-                  <h2 className="text-lg md:text-3xl text-white capitalize">
+                  <h2 className="text-lg md:text-3xl text-black dark:text-white capitalize">
                     Software Engineer & Aspiring UX/UI Designer
                   </h2>
                 </div>
@@ -104,7 +106,7 @@ export default function Portfolio() {
                     <Button
                       size="sm"
                       variant="outline"
-                      className="w-full border-[#2A2A2A] hover:bg-white/5 hover:text-white"
+                      className="w-full border-[#2A2A2A] hover:text-background/5 dark:hover:bg-foreground/5 hover:text-black dark:hover:text-white"
                     >
                       <Github className="h-4 w-4 mr-2" />
                       Github
@@ -118,7 +120,7 @@ export default function Portfolio() {
                     <Button
                       size="sm"
                       variant="outline"
-                      className="w-full border-[#2A2A2A] hover:bg-white/5 hover:text-white"
+                      className="w-full border-[#2A2A2A] hover:text-background/5 dark:hover:bg-foreground/5 hover:text-black dark:hover:text-white"
                     >
                       <Linkedin className="h-4 w-4 mr-2" />
                       LinkedIn
@@ -142,12 +144,14 @@ export default function Portfolio() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="mt-8 space-y-8 "
             >
-              <Card className="bg-[#1A1A1A] border-[#2A2A2A]">
+              <Card className="bg-background border-border">
                 <CardHeader>
-                  <CardTitle className="text-white">About</CardTitle>
+                  <CardTitle className="text-black dark:text-white">
+                    About
+                  </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4 text-lg">
-                  <p className="text-gray-300 text-base">
+                  <p className="text-gray-700 dark:text-gray-300 text-base">
                     I'm a Full-Stack Software Engineer with expertise in
                     Laravel, WordPress, NextJs, React Native, GraphQL and
                     Python. I build high-performance, scalable, and
@@ -157,7 +161,7 @@ export default function Portfolio() {
                     modern web applications that enhance usability and
                     efficiency.
                   </p>
-                  <p className="text-gray-300 text-base">
+                  <p className="text-gray-700 dark:text-gray-300 text-base">
                     I have worked on projects such as inventory and POS systems,
                     job portals, and productivity tools, helping businesses
                     streamline operations with well-structured and optimized
@@ -165,7 +169,7 @@ export default function Portfolio() {
                     Native for mobile development, my current focus is on web
                     applications and crafting seamless digital experiences.
                   </p>
-                  <p className="text-gray-300 text-base">
+                  <p className="text-gray-700 dark:text-gray-300 text-base">
                     As a Full-Stack Software Engineer specializing in Next.js, I
                     primarily focus on building modern, performant web
                     applications enhanced by AI integration, data-driven
@@ -180,7 +184,9 @@ export default function Portfolio() {
 
             {/* Tech Stack Section */}
             <div className="">
-              <h2 className="text-3xl font-bold text-white mb-6">TECH STACK</h2>
+              <h2 className="text-3xl font-bold text-black dark:text-white mb-6">
+                TECH STACK
+              </h2>
               <TechStack />
             </div>
           </motion.section>
@@ -190,12 +196,14 @@ export default function Portfolio() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="gap-12"
           >
-            <Card className="bg-[#1A1A1A] border-[#2A2A2A]">
+            <Card className="bg-background border-border">
               <CardHeader>
-                <CardTitle className="text-white">Beyond Coding</CardTitle>
+                <CardTitle className="text-black dark:text-white">
+                  Beyond Coding
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4 text-lg">
-                <p className="text-gray-300 text-base">
+                <p className="text-gray-700 dark:text-gray-300 text-base">
                   Beyond coding, I’ve been focused on self-improvement and
                   personal growth, reading books like Atomic Habits and The
                   Mountain Is You to build better habits and a stronger mindset.
@@ -207,7 +215,7 @@ export default function Portfolio() {
                   working on portfolio projects that merge technical excellence
                   with thoughtful design.
                 </p>
-                <p className="text-gray-300 text-base">
+                <p className="text-gray-700 dark:text-gray-300 text-base">
                   I enjoy running and hiking, recently exploring Mindamora Falls
                   and Lampanag Ridge. Now, I’m aiming for bigger challenges,
                   including some of the top five highest mountains in the
@@ -268,7 +276,7 @@ export default function Portfolio() {
           >
             {/* Recommendations Section */}
             <div>
-              <h2 className="text-4xl font-bold text-white mb-2">
+              <h2 className="text-4xl font-bold text-black dark:text-white mb-2">
                 Recommendations
               </h2>
               <h3 className="text-4xl font-bold text-[#4A4A4A] mb-8">
@@ -281,7 +289,7 @@ export default function Portfolio() {
             <div>
               <div className="flex justify-between items-center mb-8">
                 <div>
-                  <h2 className="text-4xl font-bold text-white mb-2">
+                  <h2 className="text-4xl font-bold text-black dark:text-white mb-2">
                     Recent Blog Posts
                   </h2>
                   <h3 className="text-4xl font-bold text-[#4A4A4A]">
@@ -313,7 +321,9 @@ export default function Portfolio() {
           >
             <div className="flex justify-between items-center mb-8">
               <div>
-                <h2 className="text-4xl font-bold text-white mb-2">RECENT</h2>
+                <h2 className="text-4xl font-bold text-black dark:text-white mb-2">
+                  RECENT
+                </h2>
                 <h3 className="text-4xl font-bold text-[#4A4A4A]">PROJECTS</h3>
               </div>
               {projects && projects.length > 4 && <ProjectsDrawer />}
@@ -326,18 +336,19 @@ export default function Portfolio() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <Card className="bg-[#1A1A1A] border-[#2A2A2A] hover:bg-[#1A1A1A]/80 transition-colors">
+                  <Card className="bg-background border-border hover:bg-background/80 transition-colors">
                     <CardContent className="p-6">
-                      <h3 className="font-bold text-lg text-white">
+                      <h3 className="font-bold text-lg text-foreground dark:text-white">
                         {project.name}
                       </h3>
-                      <p className="text-gray-300 mt-1 text-base">
+                      <p className="text-gray-700 dark:text-gray-300 mt-1 text-base">
                         {project.description}
                       </p>
                       <a
                         className="flex items-center text-[#FF4D00] mt-4 text-sm"
                         href={project.url}
                         target="_blank"
+                        rel="noopener noreferrer"
                       >
                         <ExternalLink className="h-4 w-4 mr-2" />
                         {project.url}
@@ -391,7 +402,7 @@ export default function Portfolio() {
           </motion.section> */}
 
           {/* Footer */}
-          <footer className="text-center text-gray-400 text-sm pb-8">
+          <footer className="text-center text-gray-600 dark:text-gray-400 text-sm pb-8">
             © {new Date().getFullYear()} J.M. Nicolas. All rights reserved.
           </footer>
         </div>

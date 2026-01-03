@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { RiReactjsFill } from "react-icons/ri";
 import { RiNextjsFill } from "react-icons/ri";
-import { SiTypescript } from "react-icons/si";
+import { SiElectron, SiTypescript } from "react-icons/si";
 import { FaNodeJs } from "react-icons/fa";
 import { SiPhp } from "react-icons/si";
 import { FaLaravel } from "react-icons/fa";
@@ -76,6 +76,7 @@ const techStack: TechItem[] = [
   { name: "Svelte", icon: <RiSvelteFill className="w-4 h-4 max-w-[3rem]" /> },
   { name: "Storybook", icon: <SiStorybook className="w-4 h-4 max-w-[3rem]" /> },
   { name: "Redux", icon: <SiRedux className="w-4 h-4 max-w-[3rem]" /> },
+  { name: "ElectronJS", icon: <SiElectron className="w-4 h-4 max-w-[3rem]" /> },
 ];
 
 export function TechStack() {
@@ -85,7 +86,7 @@ export function TechStack() {
         <Badge
           key={index}
           variant="outline"
-          className="px-3 py-2 text-sm border-[#2A2A2A] bg-[#1A1A1A] hover:bg-[#2A2A2A] text-gray-300 flex items-center gap-2"
+          className="px-3 py-2 text-sm border-[#2A2A2A] bg-foreground/5 dark:bg-[#1A1A1A] hover:bg-foreground/10 dark:hover:bg-[#2A2A2A] text-gray-700 dark:text-gray-300 flex items-center gap-2"
         >
           {tech.icon}
           {tech.name}
