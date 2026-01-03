@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import { Helmet } from "react-helmet";
+import { ThemeProvider } from "next-themes";
 
 // import FluidCursor from "./FluidCursor";
 
@@ -9,7 +10,12 @@ interface RootLayoutProps {
 
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
-    <>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
       <Helmet>
         <html lang="en" />
         <title>Jay Mark Nicolas - Software Engineer</title>
@@ -55,9 +61,11 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
           content="https://www.jaymarknicolas.com/profile.png"
         />
       </Helmet>
-      <div className="bg-black font-sans min-h-screen">{children}</div>
+      <div className="bg-background text-foreground font-sans min-h-screen transition-colors">
+        {children}
+      </div>
       {/* <FluidCursor /> */}
-    </>
+    </ThemeProvider>
   );
 };
 

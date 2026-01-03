@@ -16,7 +16,7 @@ const CertificationsDrawer = () => {
           View All <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
       </DrawerTrigger>
-      <DrawerContent className="bg-black">
+      <DrawerContent className="bg-white dark:bg-black">
         <div className="my-12 space-y-4 w-[95%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 h-[50vh] overflow-auto ">
           {certifications.map((cert, index) => (
             <motion.div
