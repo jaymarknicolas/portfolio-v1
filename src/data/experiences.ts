@@ -7,7 +7,7 @@ export const experiences = [
   {
     role: "Web Developer",
     company: "Syntactics Inc.",
-    year: "2025",
+    year: "2022",
   },
   {
     role: "EFAM International Internship - Hokkaido, Japan",
@@ -17,6 +17,6 @@ export const experiences = [
   {
     role: "BS Information Technology",
     company: "Central Mindanao University",
-    year: "2022",
+    year: "2018",
   },
 ];
