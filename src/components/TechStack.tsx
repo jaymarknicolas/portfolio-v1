@@ -25,6 +25,7 @@ import { GrGraphQl } from "react-icons/gr";
 import { RiSvelteFill } from "react-icons/ri";
 import { SiStorybook } from "react-icons/si";
 import { SiRedux } from "react-icons/si";
+import { RiSupabaseFill } from "react-icons/ri";
 
 interface TechItem {
   name: string;
@@ -77,6 +78,10 @@ const techStack: TechItem[] = [
   { name: "Storybook", icon: <SiStorybook className="w-4 h-4 max-w-[3rem]" /> },
   { name: "Redux", icon: <SiRedux className="w-4 h-4 max-w-[3rem]" /> },
   { name: "ElectronJS", icon: <SiElectron className="w-4 h-4 max-w-[3rem]" /> },
+  {
+    name: "Supabase",
+    icon: <RiSupabaseFill className="w-4 h-4 max-w-[3rem]" />,
+  },
 ];
 
 export function TechStack() {
