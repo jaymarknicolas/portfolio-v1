@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface Testimonial {
@@ -43,37 +43,72 @@ export function RecommendationSlider({
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -50 }}
           transition={{ duration: 0.5 }}
-          className="bg-foreground/5 dark:bg-[#1A1A1A] border dark:border-[#2A2A2A] rounded-lg p-6 space-y-4"
+          className="glass-card rounded-2xl p-8 space-y-6 relative overflow-hidden"
         >
-          <p className="text-gray-700 dark:text-gray-300 italic">
-            "{testimonials[currentIndex].content}"
-          </p>
-          <div>
-            <p className="font-semibold text-black dark:text-white">
-              {testimonials[currentIndex].author}
+          {/* Quote icon decoration */}
+          <div className="absolute top-4 right-4 opacity-10">
+            <Quote className="h-20 w-20 text-[#FF4D00]" />
+          </div>
+
+          {/* Content */}
+          <div className="relative">
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              "{testimonials[currentIndex].content}"
             </p>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              {testimonials[currentIndex].role} at{" "}
-              {testimonials[currentIndex].company}
-            </p>
+          </div>
+
+          {/* Author info */}
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#FF4D00] to-[#FF6B35] flex items-center justify-center text-white font-bold text-lg">
+              {testimonials[currentIndex].author.charAt(0)}
+            </div>
+            <div>
+              <p className="font-semibold text-foreground">
+                {testimonials[currentIndex].author}
+              </p>
+              <p className="text-sm text-muted-foreground">
+                {testimonials[currentIndex].role} at{" "}
+                <span className="text-[#FF4D00]">
+                  {testimonials[currentIndex].company}
+                </span>
+              </p>
+            </div>
+          </div>
+
+          {/* Progress dots */}
+          <div className="flex justify-center gap-2 pt-4">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? "w-8 bg-[#FF4D00]"
+                    : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                }`}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
+            ))}
           </div>
         </motion.div>
       </AnimatePresence>
+
+      {/* Navigation buttons */}
       <Button
         variant="outline"
         size="icon"
-        className="absolute transition-all group hover:bg-[#FF4D00] top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2"
+        className="absolute glass-card transition-all duration-300 group hover:bg-[#FF4D00] hover:border-[#FF4D00] top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2"
         onClick={prevSlide}
       >
-        <ChevronLeft className="h-4 w-4 text-black dark:text-white dark:group-hover:text-white group-hover:text-black" />
+        <ChevronLeft className="h-4 w-4 text-foreground group-hover:text-white" />
       </Button>
       <Button
         variant="outline"
         size="icon"
-        className="absolute transition-all group hover:bg-[#FF4D00] top-1/2 right-0 transform -translate-y-1/2 translate-x-1/2"
+        className="absolute glass-card transition-all duration-300 group hover:bg-[#FF4D00] hover:border-[#FF4D00] top-1/2 right-0 transform -translate-y-1/2 translate-x-1/2"
         onClick={nextSlide}
       >
-        <ChevronRight className="h-4 w-4 text-black dark:text-white dark:group-hover:text-white group-hover:text-black" />
+        <ChevronRight className="h-4 w-4 text-foreground group-hover:text-white" />
       </Button>
     </div>
   );

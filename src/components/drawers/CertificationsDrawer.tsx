@@ -11,24 +11,29 @@ const CertificationsDrawer = () => {
       <DrawerTrigger>
         <Button
           variant="ghost"
-          className="text-[#FF4D00] hover:text-[#FF4D00]/80"
+          className="text-[#FF4D00] hover:text-[#FF4D00]/80 hover:bg-[#FF4D00]/10 transition-all duration-300 group"
         >
-          View All <ArrowRight className="ml-2 h-4 w-4" />
+          View All{" "}
+          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
         </Button>
       </DrawerTrigger>
-      <DrawerContent className="bg-white dark:bg-black">
-        <div className="my-12 space-y-4 w-[95%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 h-[50vh] overflow-auto ">
-          {certifications.map((cert, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="!m-0 "
-            >
-              <CertificationCard certification={cert} />
-            </motion.div>
-          ))}
+      <DrawerContent className="bg-background">
+        <div className="my-8 w-[95%] mx-auto max-h-[70vh] overflow-auto">
+          <h2 className="text-2xl font-bold text-foreground mb-6">
+            All Certifications
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-4">
+            {certifications.map((cert, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+              >
+                <CertificationCard certification={cert} />
+              </motion.div>
+            ))}
+          </div>
         </div>
       </DrawerContent>
     </Drawer>
