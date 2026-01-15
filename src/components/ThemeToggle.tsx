@@ -1,6 +1,7 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { BsSun, BsMoon } from "react-icons/bs";
+import { Sun, Moon } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -12,14 +13,32 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="p-1 rounded hover:bg-muted transition-colors flex items-center justify-center size-7"
+      className="relative p-2 rounded-full glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300 flex items-center justify-center size-10"
       aria-label="Toggle Theme"
     >
-      {theme === "dark" ? (
-        <BsSun className="w-5 h-5 stroke-white" />
-      ) : (
-        <BsMoon className="w-5 h-5 stroke-gray-900" />
-      )}
+      <AnimatePresence mode="wait" initial={false}>
+        {theme === "dark" ? (
+          <motion.div
+            key="sun"
+            initial={{ rotate: -90, opacity: 0 }}
+            animate={{ rotate: 0, opacity: 1 }}
+            exit={{ rotate: 90, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <Sun className="w-5 h-5 text-[#FF4D00]" />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="moon"
+            initial={{ rotate: 90, opacity: 0 }}
+            animate={{ rotate: 0, opacity: 1 }}
+            exit={{ rotate: -90, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <Moon className="w-5 h-5 text-foreground" />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </button>
   );
 }

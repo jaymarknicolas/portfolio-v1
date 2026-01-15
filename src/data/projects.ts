@@ -1,26 +1,47 @@
-export const projects = [
+export interface Project {
+  name: string;
+  description: string;
+  url: string;
+  techStack?: string[];
+  desktopImage?: string;
+  mobileImage?: string;
+}
+
+export const projects: Project[] = [
   {
-    name: "Happy Feet",
+    name: "Qorvex",
     description:
-      "An Inventory & POS System for a retail business specializing in shoes and apparel, developed using Next.js, Prisma, PostgreSQL, and ShadCN. Features real-time inventory tracking, automated stock updates, barcode scanning, and detailed sales reports for data-driven decision-making.",
-    url: "https://project01-zeta-puce.vercel.app/",
+      "Customizable productivity dashboard with draggable widgets—to-do lists, Pomodoro timer, embeddable pages. Built with Next.js, NextAuth, and Prisma.",
+    url: "https://qorvexflow.vercel.app/",
+    techStack: ["Next.js", "React", "TypeScript", "NextAuth", "Prisma"],
+    desktopImage: "projects/qorvex-desktop.png",
+    mobileImage: "projects/qorvex-mobile.png",
   },
   {
-    name: "Valencia City Public Employment Services Office System",
+    name: "Valencia City PESO System",
     description:
-      "Developed a job posting and applicant tracking system using ReactJS, Laravel, and Figma. Designed an accessible and responsive interface, integrated RESTful APIs, and structured a scalable database for efficient employment service management.",
+      "Job posting and applicant tracking system with RESTful APIs, role management, and analytics. Accessible interface designed in Figma.",
     url: "https://peso-emis-app.jaymarknicolas.com/",
+    techStack: ["React", "Laravel", "MySQL", "Figma", "REST API"],
+    desktopImage: "projects/peso-desktop.png",
+    mobileImage: "projects/peso-mobile.png",
   },
   {
-    name: "X and C Building Construction Monitoring System",
+    name: "X&C Construction Monitoring",
     description:
-      "A web-based system for tracking and managing construction projects using Laravel, MySQL, JavaScript, jQuery, and DataTables. Provided real-time project monitoring, data visualization, and reporting. Designed with MVC architecture for scalability and maintainability.",
+      "Real-time construction project tracking with data visualization and reporting dashboards. Built with Laravel MVC architecture for scalability.",
     url: "https://construction-monitoring.jaymarknicolas.com/",
+    techStack: ["Laravel", "MySQL", "JavaScript", "jQuery", "DataTables"],
+    desktopImage: "projects/x-c-desktop.png",
+    mobileImage: "projects/x-c-mobile.png",
   },
   {
-    name: "WidgetFlow – Customizable Productivity Dashboard",
+    name: "Happy Feet & Apparel",
     description:
-      "A single-page application (SPA) built with Next.js, React, TypeScript, and Tailwind CSS, allowing users to create a personalized workspace with draggable widgets such as a to-do list, Pomodoro timer, and embeddable webpages. Integrated NextAuth for authentication and Prisma with PostgreSQL for data management.",
-    url: "https://widgetflow.jaymarknicolas.com/",
+      "Inventory & POS System for retail with real-time tracking, automated stock updates, barcode scanning, and sales reports using Next.js, Prisma, and PostgreSQL.",
+    url: "https://project01-zeta-puce.vercel.app/",
+    techStack: ["Next.js", "Prisma", "PostgreSQL", "ShadCN", "Chart.js"],
+    desktopImage: undefined,
+    mobileImage: undefined,
   },
 ];

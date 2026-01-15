@@ -2,8 +2,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Award } from "lucide-react";
 
-import { useState } from "react";
-
 interface Certification {
   title: string;
   issuer: string;
@@ -17,35 +15,37 @@ interface CertificationCardProps {
 
 export function CertificationCard({ certification }: CertificationCardProps) {
   return (
-    <>
-      <Card className="bg-foreground/5 dark:bg-[#1A1A1A] border dark:border-[#2A2A2A] hover:bg-foreground/10 dark:hover:bg-[#1A1A1A]/80 transition-colors h-full">
-        <CardContent className="p-6">
-          <div className="flex items-start justify-between">
-            <div className="space-y-2">
-              <div className="flex items-start gap-2">
-                <Award className="w-5 h-5 text-[#FF4D00] flex-shrink-0" />
-                <h3 className="font-bold text-black dark:text-white">
+    <Card className="glass-card glass-card-hover h-full group">
+      <CardContent className="p-5">
+        <div className="flex items-start justify-between gap-4">
+          <div className="space-y-2 flex-1">
+            <div className="flex items-start gap-3">
+              <div className="p-2 rounded-lg bg-[#FF4D00]/10 group-hover:bg-[#FF4D00]/20 transition-colors">
+                <Award className="w-4 h-4 text-[#FF4D00]" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground group-hover:text-[#FF4D00] transition-colors">
                   {certification.title}
                 </h3>
-              </div>
-              <p className="text-gray-700 dark:text-gray-300 text-base">
-                {certification.issuer}
-              </p>
-              {certification.credential && (
-                <p className="text-sm text-[#FF4D00]">
-                  Credential ID: {certification.credential}
+                <p className="text-muted-foreground text-sm mt-0.5">
+                  {certification.issuer}
                 </p>
-              )}
+              </div>
             </div>
-            <Badge
-              variant="outline"
-              className="border-border dark:border-[#2A2A2A] bg-background dark:bg-[#2A2A2A] text-gray-700 dark:text-gray-300"
-            >
-              {certification.date}
-            </Badge>
+            {certification.credential && (
+              <p className="text-xs text-[#FF4D00]/80 ml-11">
+                ID: {certification.credential}
+              </p>
+            )}
           </div>
-        </CardContent>
-      </Card>
-    </>
+          <Badge
+            variant="outline"
+            className="shrink-0 border-[#FF4D00]/20 bg-[#FF4D00]/5 text-[#FF4D00] text-xs"
+          >
+            {certification.date}
+          </Badge>
+        </div>
+      </CardContent>
+    </Card>
   );
 }

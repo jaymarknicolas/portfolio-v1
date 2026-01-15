@@ -4,406 +4,423 @@ import {
   Mail,
   Github,
   Linkedin,
-  ExternalLink,
+  ArrowRight,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ExperienceTimeline } from "./components/ExperienceTimeline";
 import { RecommendationSlider } from "./components/RecommendationSlider";
-import { BlogCard } from "./components/BlogCard";
 import { TechStack } from "./components/TechStack";
 import { CertificationCard } from "./components/CertificationCard";
+import { ProjectCard } from "./components/ProjectCard";
+import { Roadmap } from "./components/Roadmap";
+import { CTASection } from "./components/CTASection";
+import { StaticGradientBackground } from "./components/GradientBackground";
+import { TypingAnimation } from "./components/TypingAnimation";
+import { ScrollProgress, AnimatedSection } from "./components/ScrollProgress";
+import { SectionHeading } from "./components/SectionHeading";
+import { BackToTop } from "./components/BackToTop";
+import { SkillsProgress } from "./components/SkillsProgress";
+import { GitHubStats } from "./components/GitHubStats";
+import { Services } from "./components/Services";
+import { BlogArticles } from "./components/BlogArticles";
 
 import { experiences } from "./data/experiences";
 import { testimonials } from "./data/testimonials";
-import { blogPosts } from "./data/blog-posts";
 import { certifications } from "./data/certifications";
 import { projects } from "./data/projects";
+import { roadmapItems } from "./data/roadmap";
 
 import RootLayout from "./components/RootLayout";
 import CertificationsDrawer from "./components/drawers/CertificationsDrawer";
-import BlogsDrawer from "./components/drawers/BlogsDrawer";
 import ProjectsDrawer from "./components/drawers/ProjectsDrawer";
 
 import { ThemeToggle } from "./components/ThemeToggle";
 
+const roles = [
+  "Full-Stack Developer",
+  "Software Engineer",
+  "UX/UI Designer",
+  "Problem Solver",
+];
+
 export default function Portfolio() {
   return (
     <RootLayout>
-      <div className="min-h-screen bg-background text-foreground">
+      <div className="min-h-screen bg-background text-foreground relative">
+        {/* Animated background */}
+        <StaticGradientBackground />
+
+        {/* Scroll progress indicator */}
+        <ScrollProgress />
+
+        {/* Back to top button */}
+        <BackToTop />
+
         {/* Header Navigation */}
-        <nav className="fixed top-0 px-4 z-50 flex mt-4 gap-2 !text-sm justify-end w-full items-center">
-          <div className="right-4 gap-2 bg-background/90 backdrop-blur-sm p-2 rounded-full flex">
+        <nav className="fixed top-0 left-0 right-0 px-4 z-50 flex mt-4 gap-2 !text-sm justify-end w-full items-center">
+          <div className="right-4 gap-2 glass-card p-2 rounded-full flex">
             <a
               href="https://drive.google.com/file/d/1Tl5C3CGmirK4Y9MnmSPdi_UKoGCU3xrV/view?usp=drive_link"
               target="_blank"
+              rel="noopener noreferrer"
             >
               <Button
                 variant="ghost"
                 size="sm"
-                className="text-black dark:text-white hover:text-dark dark:hover:text-white hover:bg-foreground/10  rounded-tl-full rounded-bl-full rounded-tr-md rounded-br-md "
+                className="text-foreground hover:text-[#FF4D00] hover:bg-[#FF4D00]/10 rounded-tl-full rounded-bl-full rounded-tr-md rounded-br-md transition-all duration-300"
               >
                 <Calendar className="h-4 w-4 mr-2" />
-                Download Resume
+                Resume
               </Button>
             </a>
             <a href="mailto:jaymarknicolas.dev@gmail.com">
               <Button
                 variant="ghost"
                 size="sm"
-                className="text-black dark:text-white hover:text-dark dark:hover:bg-foreground/10 rounded-tr-full rounded-br-full"
+                className="text-foreground hover:text-[#FF4D00] hover:bg-[#FF4D00]/10 rounded-tr-full rounded-br-full transition-all duration-300"
               >
                 <Mail className="h-4 w-4 mr-2" />
-                Send Email
+                Contact
               </Button>
             </a>
           </div>
           <ThemeToggle />
         </nav>
 
-        <div className="max-w-7xl mx-auto px-4 py-8 grid gap-12  relative z-10">
+        <div className="max-w-7xl mx-auto px-4 py-8 grid gap-16 relative z-10">
           {/* Hero Section */}
           <motion.section
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="pt-16 flex gap-8 flex-col"
+            transition={{ duration: 0.6 }}
+            className="pt-24 flex gap-8 flex-col min-h-[85vh] justify-center"
           >
-            <Card className=" w-full bg-transparent border-none shadow-none border-[#2A2A2A] overflow-hidden  flex justify-end h-full self-end flex-col  rounded-none sm:flex-row  ">
-              <div
-                style={{
-                  background:
-                    "linear-gradient(220.21deg, #691E02 3.31%, #C24617 63.27%)",
-                }}
-                className="w-[250px] !h-[250px] rounded-2xl overflow-hidden mx-auto "
+            <Card className="w-full bg-transparent border-none shadow-none overflow-hidden flex items-center h-full flex-col gap-8 rounded-none md:flex-row md:gap-12">
+              {/* Profile Image */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="relative flex-shrink-0"
               >
-                <img
-                  src="./portfolio-v1.webp"
-                  alt="Jay Mark Nicolas"
-                  className=" object-cover  rounded-md md:rounded-none m-auto object-center w-full h-full"
-                />
-              </div>
-              <CardContent className="p-2 md:p-4 basis-[60%] flex-1 space-y-2 flex flex-col justify-center text-center sm:text-left">
-                <h1 className="font-medium text-lg sm:text-4xl  text-blackdark:text-white">
-                  Jay Mark Nicolas
-                </h1>
-                <div className="flex items-center text-gray-700 dark:text-gray-300 text-sm md:text-lg  mt-1 justify-center sm:justify-start">
-                  <MapPin className="h-4 w-4 mr-1" />
-                  Cagayan de Oro, Philippines
+                <div
+                  className="w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] lg:w-[280px] lg:h-[280px] rounded-2xl overflow-hidden mx-auto relative glow-orange"
+                  style={{
+                    background:
+                      "linear-gradient(220.21deg, #691E02 3.31%, #C24617 63.27%)",
+                  }}
+                >
+                  <img
+                    src="./portfolio-v1.webp"
+                    alt="Jay Mark Nicolas"
+                    className="object-cover object-center w-full h-full"
+                  />
                 </div>
-                <div className="uppercase my-3 md:!my-5 ">
-                  <h2 className="text-lg md:text-3xl text-black dark:text-white capitalize">
-                    Software Engineer & Aspiring UX/UI Designer
+                {/* Floating badge */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6 }}
+                  className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full glass-card border-gradient text-sm font-medium whitespace-nowrap"
+                >
+                  <span className="flex items-center gap-2">
+                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                    Available for work
+                  </span>
+                </motion.div>
+              </motion.div>
+
+              {/* Hero Content */}
+              <CardContent className="p-0 md:p-6 flex-1 space-y-4 flex flex-col justify-center text-center md:text-left">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  <h1 className="font-bold text-2xl sm:text-4xl md:text-5xl text-foreground">
+                    Jay Mark Nicolas
+                  </h1>
+                  <div className="flex items-center text-muted-foreground text-sm md:text-base mt-2 justify-center md:justify-start">
+                    <MapPin className="h-4 w-4 mr-1 text-[#FF4D00]" />
+                    Cagayan de Oro, Philippines
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                  className="my-4"
+                >
+                  <h2 className="text-xl md:text-3xl lg:text-4xl font-semibold">
+                    <span className="text-muted-foreground">I'm a </span>
+                    <TypingAnimation
+                      texts={roles}
+                      className="gradient-text"
+                      typingSpeed={80}
+                      deletingSpeed={40}
+                      pauseDuration={2500}
+                    />
                   </h2>
-                </div>
-                <div className="flex gap-2 mt-4 flex-wrap max-w-full md:max-w-[475px]">
+                </motion.div>
+
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="text-muted-foreground text-base md:text-lg max-w-xl"
+                >
+                  Building high-performance, scalable web applications with a
+                  focus on exceptional user experiences and clean code.
+                </motion.p>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6 }}
+                  className="flex gap-3 mt-6 flex-wrap justify-center md:justify-start"
+                >
                   <a
-                    href="https://github.com/jaymarknicolas?tab=overview&from=2025-01-01&to=2025-01-16"
+                    href="https://github.com/jaymarknicolas"
                     target="_blank"
-                    className=" flex-1"
+                    rel="noopener noreferrer"
                   >
                     <Button
-                      size="sm"
+                      size="lg"
                       variant="outline"
-                      className="w-full border-[#2A2A2A] hover:text-background/5 dark:hover:bg-foreground/5 hover:text-black dark:hover:text-white"
+                      className="glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300 group"
                     >
-                      <Github className="h-4 w-4 mr-2" />
+                      <Github className="h-5 w-5 mr-2 group-hover:text-[#FF4D00] transition-colors" />
                       Github
                     </Button>
                   </a>
                   <a
                     href="https://www.linkedin.com/in/jay-mark-nicolas-157621258/"
                     target="_blank"
-                    className=" flex-1"
+                    rel="noopener noreferrer"
                   >
                     <Button
-                      size="sm"
+                      size="lg"
                       variant="outline"
-                      className="w-full border-[#2A2A2A] hover:text-background/5 dark:hover:bg-foreground/5 hover:text-black dark:hover:text-white"
+                      className="glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300 group"
                     >
-                      <Linkedin className="h-4 w-4 mr-2" />
+                      <Linkedin className="h-5 w-5 mr-2 group-hover:text-[#FF4D00] transition-colors" />
                       LinkedIn
                     </Button>
                   </a>
-                </div>
+                  <a href="mailto:jaymarknicolas.dev@gmail.com">
+                    <Button
+                      size="lg"
+                      className="bg-[#FF4D00] hover:bg-[#FF4D00]/90 text-white shadow-lg shadow-[#FF4D00]/30 transition-all duration-300"
+                    >
+                      <Mail className="h-5 w-5 mr-2" />
+                      Get in Touch
+                    </Button>
+                  </a>
+                </motion.div>
               </CardContent>
             </Card>
           </motion.section>
 
           {/* About and Tech Stack Section */}
-          <motion.section
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
-          >
-            <motion.section
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="mt-8 space-y-8 "
-            >
-              <Card className="bg-background border-border">
+          <AnimatedSection className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="space-y-6">
+              <Card className="glass-card glass-card-hover border-gradient">
                 <CardHeader>
-                  <CardTitle className="text-black dark:text-white">
-                    About
+                  <CardTitle className="text-foreground flex items-center gap-2">
+                    <span className="w-2 h-2 bg-[#FF4D00] rounded-full" />
+                    About Me
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4 text-lg">
-                  <p className="text-gray-700 dark:text-gray-300 text-base">
-                    I'm a Full-Stack Software Engineer with expertise in
-                    Laravel, WordPress, NextJs, React Native, GraphQL and
-                    Python. I build high-performance, scalable, and
-                    user-friendly web and mobile applications, combining
-                    technical precision with intuitive design. My experience
-                    includes developing custom themes, business solutions, and
-                    modern web applications that enhance usability and
-                    efficiency.
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground">
+                    I’m a full-stack software engineer specializing in building
+                    scalable and maintainable applications across all platforms.
+                    I focus on creating practical solutions that balance
+                    performance, reliability, and clean integration across the
+                    stack, turning complex requirements into functional,
+                    user-centric systems.
                   </p>
-                  <p className="text-gray-700 dark:text-gray-300 text-base">
-                    I have worked on projects such as inventory and POS systems,
-                    job portals, and productivity tools, helping businesses
-                    streamline operations with well-structured and optimized
-                    software. While I have experience with Ionic and React
-                    Native for mobile development, my current focus is on web
-                    applications and crafting seamless digital experiences.
-                  </p>
-                  <p className="text-gray-700 dark:text-gray-300 text-base">
-                    As a Full-Stack Software Engineer specializing in Next.js, I
-                    primarily focus on building modern, performant web
-                    applications enhanced by AI integration, data-driven
-                    features, and thoughtful UI/UX design. I’m passionate about
-                    leveraging emerging technologies to optimize user
-                    experiences, streamline workflows, and push the boundaries
-                    of frontend development.
+                  <p className="text-muted-foreground">
+                    I actively pursue side projects and experiment with new
+                    tools and workflows to sharpen problem-solving skills and
+                    adapt quickly to evolving technical challenges. I bring a
+                    mindset of discipline, resilience, and continuous
+                    improvement—qualities that help me contribute effectively in
+                    fast-paced, collaborative, and remote environments.
                   </p>
                 </CardContent>
               </Card>
-            </motion.section>
+
+              <Card className="glass-card glass-card-hover border-gradient">
+                <CardHeader>
+                  <CardTitle className="text-foreground flex items-center gap-2">
+                    <span className="w-2 h-2 bg-[#FF4D00] rounded-full" />
+                    Beyond Coding
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground">
+                    Beyond code, I focus on continuous learning, hands-on
+                    experimentation, and side projects to sharpen
+                    problem-solving skills and stay adaptable. I also enjoy
+                    trail running and hiking in the Philippines, activities that
+                    reinforce discipline, resilience, and a mindset of pushing
+                    beyond comfort zones—qualities I carry into my professional
+                    work.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
 
             {/* Tech Stack Section */}
-            <div className="">
-              <h2 className="text-3xl font-bold text-black dark:text-white mb-6">
-                TECH STACK
-              </h2>
+            <div>
+              <SectionHeading
+                title="TECH STACK"
+                subtitle="Technologies I Work With"
+              />
               <TechStack />
             </div>
-          </motion.section>
-          <motion.section
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="gap-12"
-          >
-            <Card className="bg-background border-border">
-              <CardHeader>
-                <CardTitle className="text-black dark:text-white">
-                  Beyond Coding
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4 text-lg">
-                <p className="text-gray-700 dark:text-gray-300 text-base">
-                  Beyond coding, I’ve been focused on self-improvement and
-                  personal growth, reading books like Atomic Habits and The
-                  Mountain Is You to build better habits and a stronger mindset.
-                  I continuously explore UX/UI design, refining my approach to
-                  creating intuitive and engaging digital experiences. Attending
-                  seminars and meetups, like the WordPress Meetup in Iligan, has
-                  helped me expand my network and stay connected with the tech
-                  community. I’m also exploring new tech stacks and AI while
-                  working on portfolio projects that merge technical excellence
-                  with thoughtful design.
-                </p>
-                <p className="text-gray-700 dark:text-gray-300 text-base">
-                  I enjoy running and hiking, recently exploring Mindamora Falls
-                  and Lampanag Ridge. Now, I’m aiming for bigger challenges,
-                  including some of the top five highest mountains in the
-                  Philippines. Hiking pushes my endurance and discipline,
-                  reinforcing the mindset I bring to both my work and personal
-                  life. It’s a way to disconnect, reset, and find inspiration in
-                  nature while constantly pushing my limits.
-                </p>
-              </CardContent>
-            </Card>
-          </motion.section>
+          </AnimatedSection>
+
+          {/* Services Section */}
+          <AnimatedSection>
+            <SectionHeading title="Services" subtitle="What I Offer" />
+            <Services />
+          </AnimatedSection>
+
+          {/* Recent Projects Section - Moved up for better UX */}
+          <AnimatedSection>
+            <div className="flex justify-between items-start mb-8">
+              <SectionHeading title="RECENT" subtitle="PROJECTS" />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {projects.slice(0, 3).map((project, index) => (
+                <ProjectCard key={index} project={project} index={index} />
+              ))}
+            </div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="mt-8 text-center"
+            >
+              <ProjectsDrawer />
+            </motion.div>
+          </AnimatedSection>
+
+          {/* Skills Progress Section */}
+          <AnimatedSection>
+            <SectionHeading title="Skills" subtitle="Proficiency Levels" />
+            <SkillsProgress />
+          </AnimatedSection>
+
           {/* Experience and Certifications Grid */}
-          <motion.section
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12"
-          >
+          <AnimatedSection className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Experience Section */}
             <div>
-              <h2 className="text-4xl font-bold text-white mb-2">Experience</h2>
-              <div className="mt-12">
+              <SectionHeading
+                title="My Journey"
+                subtitle="Experience & Education"
+              />
+              <div className="mt-6">
                 <ExperienceTimeline experiences={experiences} />
               </div>
             </div>
 
             {/* Certifications Section */}
             <div>
-              <div className="flex justify-between items-center mb-8">
-                <h2 className="text-4xl font-bold text-white">
-                  Certifications
-                </h2>
+              <div className="flex justify-between items-start mb-6">
+                <SectionHeading title="Certifications" subtitle="Credentials" />
                 {certifications && certifications.length > 3 && (
                   <CertificationsDrawer />
                 )}
               </div>
-              <div className="mt-12 space-y-4">
-                {certifications.slice(0, 3).map((cert, index) => (
+              <div className="space-y-4">
+                {certifications.slice(0, 4).map((cert, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
                   >
                     <CertificationCard certification={cert} />
                   </motion.div>
                 ))}
               </div>
             </div>
-          </motion.section>
+          </AnimatedSection>
 
-          {/* Recommendations and Blog Grid */}
-          <motion.section
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12"
-          >
-            {/* Recommendations Section */}
-            <div>
-              <h2 className="text-4xl font-bold text-black dark:text-white mb-2">
-                Recommendations
-              </h2>
-              <h3 className="text-4xl font-bold text-[#4A4A4A] mb-8">
-                What People Say
-              </h3>
-              <RecommendationSlider testimonials={testimonials} />
-            </div>
+          {/* Recommendations Section */}
+          <AnimatedSection>
+            <SectionHeading
+              title="Recommendations"
+              subtitle="What People Say"
+            />
+            <RecommendationSlider testimonials={testimonials} />
+          </AnimatedSection>
 
-            {/* Blog Section */}
-            <div>
-              <div className="flex justify-between items-center mb-8">
-                <div>
-                  <h2 className="text-4xl font-bold text-black dark:text-white mb-2">
-                    Recent Blog Posts
-                  </h2>
-                  <h3 className="text-4xl font-bold text-[#4A4A4A]">
-                    Latest Articles
-                  </h3>
-                </div>
-                {blogPosts && blogPosts.length > 3 && <BlogsDrawer />}
-              </div>
-              <div className="space-y-6">
-                {blogPosts.slice(0, 3).map((post, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                  >
-                    <BlogCard post={post} />
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.section>
+          {/* GitHub Stats Section */}
+          <AnimatedSection>
+            <SectionHeading title="GitHub" subtitle="Activity & Stats" />
+            <GitHubStats username="jaymarknicolas" />
+          </AnimatedSection>
 
-          {/* Recent Projects Section */}
-          <motion.section
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
-          >
-            <div className="flex justify-between items-center mb-8">
-              <div>
-                <h2 className="text-4xl font-bold text-black dark:text-white mb-2">
-                  RECENT
-                </h2>
-                <h3 className="text-4xl font-bold text-[#4A4A4A]">PROJECTS</h3>
-              </div>
-              {projects && projects.length > 4 && <ProjectsDrawer />}
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {projects.slice(0, 4).map((project, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <Card className="bg-background border-border hover:bg-background/80 transition-colors">
-                    <CardContent className="p-6">
-                      <h3 className="font-bold text-lg text-foreground dark:text-white">
-                        {project.name}
-                      </h3>
-                      <p className="text-gray-700 dark:text-gray-300 mt-1 text-base">
-                        {project.description}
-                      </p>
-                      <a
-                        className="flex items-center text-[#FF4D00] mt-4 text-sm"
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        {project.url}
-                      </a>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </motion.section>
+          {/* Roadmap Section */}
+          <AnimatedSection>
+            <SectionHeading title="Roadmap" subtitle="Learning & Goals" />
+            <Roadmap items={roadmapItems} />
+          </AnimatedSection>
 
-          {/* Contact Section */}
-          {/* <motion.section
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 1 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
-          >
-            <div>
-              <h2 className="text-4xl font-bold text-white mb-2">LET'S WORK</h2>
-              <h2 className="text-4xl font-bold text-[#4A4A4A] mb-8">
-                TOGETHER
-              </h2>
-              <p className="text-gray-300 text-base">
-                I'm always open to new opportunities and collaborations. Feel
-                free to reach out if you have a project in mind or just want to
-                connect!
-              </p>
-            </div>
-            <Card className="bg-[#1A1A1A] border-[#2A2A2A]">
-              <CardContent className="p-6">
-                <form className="grid gap-4">
-                  <Input
-                    placeholder="Name"
-                    className="bg-[#2A2A2A] border-0 text-white placeholder:text-gray-500"
-                  />
-                  <Input
-                    placeholder="Email"
-                    className="bg-[#2A2A2A] border-0 text-white placeholder:text-gray-500"
-                  />
-                  <Textarea
-                    placeholder="Message"
-                    className="bg-[#2A2A2A] border-0 min-h-[150px] text-white placeholder:text-gray-500"
-                  />
-                  <Button className="w-full bg-[#FF4D00] hover:bg-[#FF4D00]/90 text-white">
-                    Send Message
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-          </motion.section> */}
+          {/* Blog/Articles Section */}
+          {/* <AnimatedSection>
+            <SectionHeading title="Blog" subtitle="Latest Articles" />
+            <BlogArticles username="jaymarknicolas" showFallback={true} />
+          </AnimatedSection> */}
+
+          {/* CTA Section */}
+          <CTASection />
 
           {/* Footer */}
-          <footer className="text-center text-gray-600 dark:text-gray-400 text-sm pb-8">
-            © {new Date().getFullYear()} J.M. Nicolas. All rights reserved.
+          <footer className="text-center py-8 border-t border-border/50">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-4"
+            >
+              <div className="flex justify-center gap-4">
+                <a
+                  href="https://github.com/jaymarknicolas"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300"
+                >
+                  <Github className="h-5 w-5 text-muted-foreground hover:text-[#FF4D00]" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/jay-mark-nicolas-157621258/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300"
+                >
+                  <Linkedin className="h-5 w-5 text-muted-foreground hover:text-[#FF4D00]" />
+                </a>
+                <a
+                  href="mailto:jaymarknicolas.dev@gmail.com"
+                  className="p-2 rounded-full glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300"
+                >
+                  <Mail className="h-5 w-5 text-muted-foreground hover:text-[#FF4D00]" />
+                </a>
+              </div>
+              <p className="text-muted-foreground text-sm">
+                © {new Date().getFullYear()} Jay Mark Nicolas. Crafted with
+                passion.
+              </p>
+            </motion.div>
           </footer>
         </div>
       </div>

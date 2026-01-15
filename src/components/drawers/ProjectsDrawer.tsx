@@ -1,52 +1,32 @@
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { ArrowRight, FolderOpen } from "lucide-react";
 import { projects } from "@/data/projects";
-import { Card, CardContent } from "@/components/ui/card";
-import { ExternalLink } from "lucide-react";
+import { ProjectCard } from "@/components/ProjectCard";
 
 const ProjectsDrawer = () => {
   return (
     <Drawer>
-      <DrawerTrigger>
+      <DrawerTrigger asChild>
         <Button
-          variant="ghost"
-          className="text-[#FF4D00] hover:text-[#FF4D00]/80"
+          variant="outline"
+          className="glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300 group"
         >
-          View All <ArrowRight className="ml-2 h-4 w-4" />
+          <FolderOpen className="mr-2 h-4 w-4 group-hover:text-[#FF4D00] transition-colors" />
+          See More Projects
+          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
         </Button>
       </DrawerTrigger>
-      <DrawerContent className="bg-background dark:bg-black">
-        <div className="my-12 space-y-4 w-[95%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 h-[50vh] overflow-auto ">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="!m-0 "
-            >
-              <Card className="bg-foreground/5 dark:bg-[#1A1A1A] border dark:border-[#2A2A2A] hover:bg-[#1A1A1A]/80 transition-colors">
-                <CardContent className="p-6">
-                  <h3 className="font-bold text-lg text-black dark:text-white">
-                    {project.name}
-                  </h3>
-                  <p className="text-gray-700 dark:text-gray-300 mt-1 text-base">
-                    {project.description}
-                  </p>
-                  <a
-                    className="flex items-center text-[#FF4D00] mt-4 text-sm"
-                    href={project.url}
-                    target="_blank"
-                  >
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    {project.url}
-                  </a>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+      <DrawerContent className="bg-background">
+        <div className="my-8 w-[95%] mx-auto max-h-[70vh] overflow-auto">
+          <h2 className="text-2xl font-bold text-foreground mb-6">
+            All Projects
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-4">
+            {projects.map((project, index) => (
+              <ProjectCard key={index} project={project} index={index} />
+            ))}
+          </div>
         </div>
       </DrawerContent>
     </Drawer>
