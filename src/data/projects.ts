@@ -14,8 +14,8 @@ export const projects: Project[] = [
       "Customizable productivity dashboard with draggable widgets—to-do lists, Pomodoro timer, embeddable pages. Built with Next.js, NextAuth, and Prisma.",
     url: "https://qorvexflow.vercel.app/",
     techStack: ["Next.js", "React", "TypeScript", "NextAuth", "Prisma"],
-    desktopImage: "public/qorvex-desktop.png",
-    mobileImage: "public/qorvex-mobile.png",
+    desktopImage: "projects/qorvex-desktop.png",
+    mobileImage: "projects/qorvex-mobile.png",
   },
   {
     name: "Valencia City PESO System",
@@ -23,8 +23,8 @@ export const projects: Project[] = [
       "Job posting and applicant tracking system with RESTful APIs, role management, and analytics. Accessible interface designed in Figma.",
     url: "https://peso-emis-app.jaymarknicolas.com/",
     techStack: ["React", "Laravel", "MySQL", "Figma", "REST API"],
-    desktopImage: "public/peso-desktop.png",
-    mobileImage: "public/peso-mobile.png",
+    desktopImage: "projects/peso-desktop.png",
+    mobileImage: "projects/peso-mobile.png",
   },
   {
     name: "X&C Construction Monitoring",
@@ -32,8 +32,8 @@ export const projects: Project[] = [
       "Real-time construction project tracking with data visualization and reporting dashboards. Built with Laravel MVC architecture for scalability.",
     url: "https://construction-monitoring.jaymarknicolas.com/",
     techStack: ["Laravel", "MySQL", "JavaScript", "jQuery", "DataTables"],
-    desktopImage: "public/x-c-desktop.png",
-    mobileImage: "public/x-c-mobile.png",
+    desktopImage: "projects/x-c-desktop.png",
+    mobileImage: "projects/x-c-mobile.png",
   },
   {
     name: "Happy Feet & Apparel",
