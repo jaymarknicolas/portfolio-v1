@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface TypingAnimationProps {
   texts: string[];
@@ -68,16 +68,7 @@ export function TypingAnimation({
 
   return (
     <span className={className}>
-      <AnimatePresence mode="wait">
-        <motion.span
-          key={displayText}
-          initial={{ opacity: 0.8 }}
-          animate={{ opacity: 1 }}
-          className="inline"
-        >
-          {displayText}
-        </motion.span>
-      </AnimatePresence>
+      <span className="inline">{displayText}</span>
       <span className="typing-cursor" />
     </span>
   );
