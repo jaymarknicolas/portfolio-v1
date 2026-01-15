@@ -122,7 +122,9 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                     <div className="w-full h-[140px] bg-gradient-to-br from-[#FF4D00]/20 via-background to-[#FF6B35]/20 flex items-center justify-center">
                       <div className="text-center">
                         <Monitor className="h-8 w-8 mx-auto text-[#FF4D00]/50 mb-2" />
-                        <span className="text-xs text-muted-foreground">Desktop Preview</span>
+                        <span className="text-xs text-muted-foreground">
+                          Desktop Preview
+                        </span>
                       </div>
                     </div>
                   )}
@@ -172,7 +174,9 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                     <div className="w-full h-[180px] bg-gradient-to-br from-[#FF4D00]/20 via-background to-[#FF6B35]/20 flex items-center justify-center">
                       <div className="text-center">
                         <Smartphone className="h-6 w-6 mx-auto text-[#FF4D00]/50 mb-1" />
-                        <span className="text-[10px] text-muted-foreground">Mobile</span>
+                        <span className="text-[10px] text-muted-foreground">
+                          Mobile
+                        </span>
                       </div>
                     </div>
                   )}

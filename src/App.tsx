@@ -376,10 +376,10 @@ export default function Portfolio() {
           </AnimatedSection>
 
           {/* Blog/Articles Section */}
-          <AnimatedSection>
+          {/* <AnimatedSection>
             <SectionHeading title="Blog" subtitle="Latest Articles" />
             <BlogArticles username="jaymarknicolas" showFallback={true} />
-          </AnimatedSection>
+          </AnimatedSection> */}
 
           {/* CTA Section */}
           <CTASection />
