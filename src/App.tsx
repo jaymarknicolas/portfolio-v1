@@ -9,7 +9,7 @@ import {
   Briefcase,
   Code2,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { SectionLink } from "./components/SectionLink";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -215,7 +215,7 @@ export default function Portfolio() {
           </motion.section>
 
           {/* About and Tech Stack Section */}
-          <AnimatedSection className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <AnimatedSection id="tech-stack-section" className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="space-y-6">
               <Card className="glass-card glass-card-hover border-gradient">
                 <CardHeader>
@@ -272,7 +272,7 @@ export default function Portfolio() {
                   title="TECH STACK"
                   subtitle="Technologies I Work With"
                 />
-                <Link to="/tech-stack">
+                <SectionLink to="/tech-stack" sectionId="tech-stack-section">
                   <Button
                     variant="outline"
                     size="sm"
@@ -281,7 +281,7 @@ export default function Portfolio() {
                     <Code2 className="h-4 w-4 mr-2 group-hover:text-[#FF4D00] transition-colors" />
                     View All
                   </Button>
-                </Link>
+                </SectionLink>
               </div>
               <TechStack />
             </div>
@@ -294,7 +294,7 @@ export default function Portfolio() {
           </AnimatedSection>
 
           {/* Recent Projects Section - Moved up for better UX */}
-          <AnimatedSection>
+          <AnimatedSection id="recent-projects-section">
             <div className="flex justify-between items-start mb-8">
               <SectionHeading title="RECENT" subtitle="PROJECTS" />
             </div>
@@ -309,7 +309,7 @@ export default function Portfolio() {
               viewport={{ once: true }}
               className="mt-8 text-center"
             >
-              <Link to="/all-projects">
+              <SectionLink to="/all-projects" sectionId="recent-projects-section">
                 <Button
                   variant="outline"
                   className="glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300 group"
@@ -318,7 +318,7 @@ export default function Portfolio() {
                   View All Projects
                   <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
-              </Link>
+              </SectionLink>
             </motion.div>
           </AnimatedSection>
 
@@ -329,7 +329,7 @@ export default function Portfolio() {
           </AnimatedSection>
 
           {/* Experience and Certifications Grid */}
-          <AnimatedSection className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <AnimatedSection id="experience-section" className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Experience Section */}
             <div>
               <div className="flex justify-between items-start mb-6">
@@ -337,7 +337,7 @@ export default function Portfolio() {
                   title="My Journey"
                   subtitle="Experience & Education"
                 />
-                <Link to="/experience">
+                <SectionLink to="/experience" sectionId="experience-section">
                   <Button
                     variant="outline"
                     size="sm"
@@ -346,7 +346,7 @@ export default function Portfolio() {
                     <Briefcase className="h-4 w-4 mr-2 group-hover:text-[#FF4D00] transition-colors" />
                     View All
                   </Button>
-                </Link>
+                </SectionLink>
               </div>
               <div className="mt-2">
                 <ExperienceTimeline experiences={experiences} />
@@ -358,7 +358,7 @@ export default function Portfolio() {
               <div className="flex justify-between items-start mb-6">
                 <SectionHeading title="Certifications" subtitle="Credentials" />
                 {certifications && certifications.length > 3 && (
-                  <Link to="/certifications">
+                  <SectionLink to="/certifications" sectionId="experience-section">
                     <Button
                       variant="outline"
                       size="sm"
@@ -367,7 +367,7 @@ export default function Portfolio() {
                       <Award className="h-4 w-4 mr-2 group-hover:text-[#FF4D00] transition-colors" />
                       View All
                     </Button>
-                  </Link>
+                  </SectionLink>
                 )}
               </div>
               <div className="space-y-4">

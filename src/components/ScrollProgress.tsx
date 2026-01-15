@@ -24,6 +24,30 @@ export function useScrollAnimation(threshold = 0.1) {
 
   useEffect(() => {
     if (!ref) return;
+    if (isVisible) return; // Already visible, no need to observe
+
+    const checkVisibility = () => {
+      const rect = ref.getBoundingClientRect();
+      const isInViewport =
+        rect.top < window.innerHeight &&
+        rect.bottom > 0 &&
+        rect.left < window.innerWidth &&
+        rect.right > 0;
+
+      if (isInViewport) {
+        setIsVisible(true);
+        return true;
+      }
+      return false;
+    };
+
+    // Check immediately
+    if (checkVisibility()) return;
+
+    // Check again after a short delay (for scroll restoration)
+    const timeoutId = setTimeout(() => {
+      if (checkVisibility()) return;
+    }, 100);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -38,9 +62,10 @@ export function useScrollAnimation(threshold = 0.1) {
     observer.observe(ref);
 
     return () => {
+      clearTimeout(timeoutId);
       if (ref) observer.unobserve(ref);
     };
-  }, [ref, threshold]);
+  }, [ref, threshold, isVisible]);
 
   return { ref: setRef, isVisible };
 }
@@ -50,18 +75,21 @@ interface AnimatedSectionProps {
   children: React.ReactNode;
   className?: string;
   delay?: number;
+  id?: string;
 }
 
 export function AnimatedSection({
   children,
   className = "",
   delay = 0,
+  id,
 }: AnimatedSectionProps) {
   const { ref, isVisible } = useScrollAnimation(0.1);
 
   return (
     <motion.section
       ref={ref}
+      id={id}
       initial={{ opacity: 0, y: 40 }}
       animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ duration: 0.6, delay, ease: "easeOut" }}

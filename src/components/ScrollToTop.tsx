@@ -5,24 +5,35 @@ import { getScrollTarget } from "./SectionLink";
 export function ScrollToTop() {
   const { pathname } = useLocation();
   const navigationType = useNavigationType();
-  const prevPathname = useRef(pathname);
+  const hasScrolledRef = useRef(false);
 
   useEffect(() => {
-    // Check if we're navigating back and have a scroll target
+    // Reset scroll flag when pathname changes
+    hasScrolledRef.current = false;
+  }, [pathname]);
+
+  useEffect(() => {
+    // Prevent double-scrolling
+    if (hasScrolledRef.current) return;
+
+    // Check if we're navigating back to home and have a scroll target
     if (navigationType === "POP" && pathname === "/") {
       const scrollTarget = getScrollTarget();
       if (scrollTarget) {
-        // Wait for the page to render, then scroll to the section
+        hasScrolledRef.current = true;
+
+        // Function to scroll to the target element
         const scrollToSection = () => {
           const element = document.getElementById(scrollTarget);
           if (element) {
-            // Scroll to element with offset for fixed header
+            // Get the element's absolute position on the page
+            const rect = element.getBoundingClientRect();
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
             const headerOffset = 100;
-            const elementPosition = element.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            const targetPosition = rect.top + scrollTop - headerOffset;
 
             window.scrollTo({
-              top: offsetPosition,
+              top: targetPosition,
               behavior: "instant"
             });
             return true;
@@ -30,26 +41,26 @@ export function ScrollToTop() {
           return false;
         };
 
-        // Try immediately, then retry a few times as content loads
-        if (!scrollToSection()) {
-          let attempts = 0;
-          const interval = setInterval(() => {
-            attempts++;
-            if (scrollToSection() || attempts >= 20) {
-              clearInterval(interval);
+        // Use requestAnimationFrame to wait for render, then try scrolling
+        const attemptScroll = (attemptsLeft: number) => {
+          requestAnimationFrame(() => {
+            if (!scrollToSection() && attemptsLeft > 0) {
+              setTimeout(() => attemptScroll(attemptsLeft - 1), 50);
             }
-          }, 100);
-        }
+          });
+        };
+
+        // Start scroll attempts after a brief delay to let React render
+        setTimeout(() => attemptScroll(30), 10);
         return;
       }
     }
 
     // For new navigations (PUSH), scroll to top
     if (navigationType !== "POP") {
+      hasScrolledRef.current = true;
       window.scrollTo(0, 0);
     }
-
-    prevPathname.current = pathname;
   }, [pathname, navigationType]);
 
   return null;
