@@ -18,30 +18,32 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
     >
       <Helmet>
         <html lang="en" />
-        <title>Jay Mark Nicolas - Software Engineer</title>
+        <title>Jay Mark Nicolas - Full-Stack Software Engineer | Portfolio & Projects</title>
         <meta
           name="title"
-          content="Jay Mark Nicolas - Software Engineer & Aspiring UX/UI Designer"
+          content="Jay Mark Nicolas - Full-Stack Software Engineer | Portfolio & Projects"
         />
         <meta
           name="description"
-          content="Welcome to the portfolio of Jay Mark Nicolas, a software engineer and aspiring UX/UI designer based in Cagayan de Oro, Philippines. Explore my projects and experiences."
+          content="Jay Mark Nicolas - Full-Stack Software Engineer specializing in React, Next.js, Laravel, and TypeScript. Building modern web applications, RESTful APIs, and scalable systems."
         />
+        <link rel="canonical" href="https://www.jaymarknicolas.com/" />
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.jaymarknicolas.com/" />
         <meta
           property="og:title"
-          content="Jay Mark Nicolas - Software Engineer & Aspiring UX/UI Designer"
+          content="Jay Mark Nicolas - Full-Stack Software Engineer | Portfolio & Projects"
         />
         <meta
           property="og:description"
-          content="Welcome to the portfolio of Jay Mark Nicolas, a software engineer and aspiring UX/UI designer based in Cagayan de Oro, Philippines. Explore my projects and experiences."
+          content="Full-Stack Software Engineer specializing in React, Next.js, Laravel, and TypeScript. Featured project: Qorvex - Customizable productivity dashboard with draggable widgets."
         />
         <meta
           property="og:image"
           content="https://www.jaymarknicolas.com/portfolio-v1.webp"
         />
+        <meta property="og:site_name" content="Jay Mark Nicolas Portfolio" />
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta
@@ -50,11 +52,11 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
         />
         <meta
           property="twitter:title"
-          content="Jay Mark Nicolas - Software Engineer & Aspiring UX/UI Designer"
+          content="Jay Mark Nicolas - Full-Stack Software Engineer | Portfolio & Projects"
         />
         <meta
           property="twitter:description"
-          content="Welcome to the portfolio of Jay Mark Nicolas, a software engineer and aspiring UX/UI designer based in Cagayan de Oro, Philippines. Explore my projects and experiences."
+          content="Full-Stack Software Engineer specializing in React, Next.js, Laravel, and TypeScript. Featured project: Qorvex - Customizable productivity dashboard with draggable widgets."
         />
         <meta
           property="twitter:image"
