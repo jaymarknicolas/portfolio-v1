@@ -1,11 +1,15 @@
 import {
   MapPin,
-  Calendar,
   Mail,
   Github,
   Linkedin,
   ArrowRight,
+  FolderOpen,
+  Award,
+  Briefcase,
+  Code2,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -33,10 +37,9 @@ import { projects } from "./data/projects";
 import { roadmapItems } from "./data/roadmap";
 
 import RootLayout from "./components/RootLayout";
-import CertificationsDrawer from "./components/drawers/CertificationsDrawer";
-import ProjectsDrawer from "./components/drawers/ProjectsDrawer";
 
 import { ThemeToggle } from "./components/ThemeToggle";
+import { ResumeDownloadButton } from "./components/ResumeDownloadButton";
 
 const roles = [
   "Full-Stack Developer",
@@ -61,20 +64,7 @@ export default function Portfolio() {
         {/* Header Navigation */}
         <nav className="fixed top-0 left-0 right-0 px-4 z-50 flex mt-4 gap-2 !text-sm justify-end w-full items-center">
           <div className="right-4 gap-2 glass-card p-2 rounded-full flex">
-            <a
-              href="https://drive.google.com/file/d/1Tl5C3CGmirK4Y9MnmSPdi_UKoGCU3xrV/view?usp=drive_link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                variant="ghost"
-                size="sm"
-                className="text-foreground hover:text-[#FF4D00] hover:bg-[#FF4D00]/10 rounded-tl-full rounded-bl-full rounded-tr-md rounded-br-md transition-all duration-300"
-              >
-                <Calendar className="h-4 w-4 mr-2" />
-                Resume
-              </Button>
-            </a>
+            <ResumeDownloadButton />
             <a href="mailto:jaymarknicolas.dev@gmail.com">
               <Button
                 variant="ghost"
@@ -144,7 +134,7 @@ export default function Portfolio() {
                   </h1>
                   <div className="flex items-center text-muted-foreground text-sm md:text-base mt-2 justify-center md:justify-start">
                     <MapPin className="h-4 w-4 mr-1 text-[#FF4D00]" />
-                    Cagayan de Oro, Philippines
+                    Bukidnon, Philippines
                   </div>
                 </motion.div>
 
@@ -277,10 +267,22 @@ export default function Portfolio() {
 
             {/* Tech Stack Section */}
             <div>
-              <SectionHeading
-                title="TECH STACK"
-                subtitle="Technologies I Work With"
-              />
+              <div className="flex justify-between items-start mb-4">
+                <SectionHeading
+                  title="TECH STACK"
+                  subtitle="Technologies I Work With"
+                />
+                <Link to="/tech-stack">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300 group"
+                  >
+                    <Code2 className="h-4 w-4 mr-2 group-hover:text-[#FF4D00] transition-colors" />
+                    View All
+                  </Button>
+                </Link>
+              </div>
               <TechStack />
             </div>
           </AnimatedSection>
@@ -307,7 +309,16 @@ export default function Portfolio() {
               viewport={{ once: true }}
               className="mt-8 text-center"
             >
-              <ProjectsDrawer />
+              <Link to="/all-projects">
+                <Button
+                  variant="outline"
+                  className="glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300 group"
+                >
+                  <FolderOpen className="h-4 w-4 mr-2 group-hover:text-[#FF4D00] transition-colors" />
+                  View All Projects
+                  <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
             </motion.div>
           </AnimatedSection>
 
@@ -321,11 +332,23 @@ export default function Portfolio() {
           <AnimatedSection className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Experience Section */}
             <div>
-              <SectionHeading
-                title="My Journey"
-                subtitle="Experience & Education"
-              />
-              <div className="mt-6">
+              <div className="flex justify-between items-start mb-6">
+                <SectionHeading
+                  title="My Journey"
+                  subtitle="Experience & Education"
+                />
+                <Link to="/experience">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300 group"
+                  >
+                    <Briefcase className="h-4 w-4 mr-2 group-hover:text-[#FF4D00] transition-colors" />
+                    View All
+                  </Button>
+                </Link>
+              </div>
+              <div className="mt-2">
                 <ExperienceTimeline experiences={experiences} />
               </div>
             </div>
@@ -335,7 +358,16 @@ export default function Portfolio() {
               <div className="flex justify-between items-start mb-6">
                 <SectionHeading title="Certifications" subtitle="Credentials" />
                 {certifications && certifications.length > 3 && (
-                  <CertificationsDrawer />
+                  <Link to="/certifications">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300 group"
+                    >
+                      <Award className="h-4 w-4 mr-2 group-hover:text-[#FF4D00] transition-colors" />
+                      View All
+                    </Button>
+                  </Link>
                 )}
               </div>
               <div className="space-y-4">

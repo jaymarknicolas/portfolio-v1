@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { Mail, Calendar, ArrowRight, Sparkles } from "lucide-react";
+import { Mail, ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ResumeDownloadButtonLarge } from "./ResumeDownloadButtonLarge";
 
 export function CTASection() {
   return (
@@ -79,20 +80,7 @@ export function CTASection() {
               </Button>
             </a>
 
-            <a
-              href="https://drive.google.com/file/d/1Tl5C3CGmirK4Y9MnmSPdi_UKoGCU3xrV/view?usp=drive_link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-border hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300 group"
-              >
-                <Calendar className="h-5 w-5 mr-2" />
-                Download Resume
-              </Button>
-            </a>
+            <ResumeDownloadButtonLarge />
           </motion.div>
 
           {/* Quick stats */}
