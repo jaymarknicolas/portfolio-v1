@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 interface Project {
   name: string;
   description: string;
-  url: string;
+  url?: string;
   techStack?: string[];
   desktopImage?: string;
   mobileImage?: string;
@@ -22,7 +22,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
   const [isHovering, setIsHovering] = useState(false);
 
   const handlePreviewClick = () => {
-    window.open(project.url, "_blank", "noopener,noreferrer");
+    if (project.url) window.open(project.url, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -34,7 +34,9 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
     >
       {/* Device Preview Section */}
       <div
-        className="relative bg-gradient-to-br from-muted/50 to-muted p-6 pb-0 cursor-pointer"
+        className={`relative bg-gradient-to-br from-muted/50 to-muted p-6 pb-0 ${
+          project.url ? "cursor-pointer" : "cursor-not-allowed"
+        }`}
         onClick={handlePreviewClick}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
@@ -224,7 +226,9 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           href={project.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm text-[#FF4D00] hover:text-[#FF6B35] transition-colors group/link"
+          className={`inline-flex items-center gap-2 text-sm text-[#FF4D00] hover:text-[#FF6B35] transition-colors group/link ${
+            project.url ? "cursor-pointer" : "cursor-not-allowed"
+          }`}
         >
           <ExternalLink className="h-4 w-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
           <span>View Project</span>
