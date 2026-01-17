@@ -18,6 +18,31 @@ export const projects: Project[] = [
     mobileImage: "projects/qorvex-mobile.png",
   },
   {
+    name: "Homio",
+    description:
+      "Accommodation-finding app for discovering rooms and places to stay—boarding houses, apartments, inns, and short-term lodging. Built with Next.js, Prisma, and modern web technologies.",
+    url: "https://homio-taupe.vercel.app/",
+    techStack: ["Next.js", "React", "TypeScript", "Prisma", "PostgreSQL"],
+    desktopImage: "projects/homio-desktop.png",
+    mobileImage: "projects/homio-mobile.png",
+  },
+  {
+    name: "Banforge",
+    description:
+      "AI-powered drone system for detecting defects and diseases in banana leaves through computer vision and deep learning. Built with Python, TensorFlow, and drone-based imaging systems.",
+    url: "https://banforge.vercel.app/",
+    techStack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "NextAuth",
+      "TensorFlow",
+      "Python",
+    ],
+    desktopImage: "projects/banforge-desktop.png",
+    mobileImage: "projects/banforge-mobile.png",
+  },
+  {
     name: "Happy Feet & Apparel",
     description:
       "Inventory & POS System for retail with real-time tracking, automated stock updates, barcode scanning, and sales reports using Next.js, Prisma, and PostgreSQL.",
