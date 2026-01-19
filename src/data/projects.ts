@@ -27,7 +27,7 @@ export const projects: Project[] = [
     mobileImage: "projects/homio-mobile.png",
   },
   {
-    name: "StickerIO",
+    name: "Synthetik",
     description:
       "AI-driven sticker generation platform that transforms user-uploaded images into unique, high-quality designs. Features a complete workflow from automated image processing to an admin fulfillment dashboard for physical printing.",
     url: "https://sticker-generation.vercel.app/",
