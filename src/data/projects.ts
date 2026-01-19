@@ -27,6 +27,22 @@ export const projects: Project[] = [
     mobileImage: "projects/homio-mobile.png",
   },
   {
+    name: "StickerIO",
+    description:
+      "AI-driven sticker generation platform that transforms user-uploaded images into unique, high-quality designs. Features a complete workflow from automated image processing to an admin fulfillment dashboard for physical printing.",
+    url: "https://sticker-generation.vercel.app/",
+    techStack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "OpenAI API",
+      "TailwindCSS",
+      "Shadcn",
+    ],
+    desktopImage: "projects/sticker-desktop.png",
+    mobileImage: "projects/sticker-mobile.png",
+  },
+  {
     name: "Banforge",
     description:
       "AI-powered drone system for detecting defects and diseases in banana leaves through computer vision and deep learning. Built with Python, TensorFlow, and drone-based imaging systems.",
@@ -42,6 +58,7 @@ export const projects: Project[] = [
     desktopImage: "projects/banforge-desktop.png",
     mobileImage: "projects/banforge-mobile.png",
   },
+
   {
     name: "Happy Feet & Apparel",
     description:
