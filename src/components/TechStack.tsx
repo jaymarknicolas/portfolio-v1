@@ -13,13 +13,13 @@ import { BiLogoSpringBoot } from "react-icons/bi";
 import { IoLogoIonic } from "react-icons/io";
 import { GrGraphQl } from "react-icons/gr";
 
-interface TechItem {
+export interface TechItem {
   name: string;
   icon: React.ReactNode;
   category: "frontend" | "backend" | "database" | "tools";
 }
 
-const techStack: TechItem[] = [
+export const techStack: TechItem[] = [
   // Frontend
   { name: "React", icon: <RiReactjsFill className="w-4 h-4" />, category: "frontend" },
   { name: "Next.js", icon: <RiNextjsFill className="w-4 h-4" />, category: "frontend" },

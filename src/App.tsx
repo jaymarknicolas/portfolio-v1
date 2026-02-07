@@ -6,35 +6,33 @@ import {
   ArrowRight,
   FolderOpen,
   Award,
-  Briefcase,
   Code2,
+  Terminal,
 } from "lucide-react";
 import { SectionLink } from "./components/SectionLink";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ExperienceTimeline } from "./components/ExperienceTimeline";
+import { StickyExperienceScroll } from "./components/StickyExperienceScroll";
+import {
+  StickyRevealSection,
+  RevealItem,
+} from "./components/StickyRevealSection";
+import { MouseGlow } from "./components/MouseGlow";
 import { RecommendationSlider } from "./components/RecommendationSlider";
-import { TechStack } from "./components/TechStack";
+import { techStack } from "./components/TechStack";
 import { CertificationCard } from "./components/CertificationCard";
 import { ProjectCard } from "./components/ProjectCard";
-import { Roadmap } from "./components/Roadmap";
 import { CTASection } from "./components/CTASection";
 import { StaticGradientBackground } from "./components/GradientBackground";
 import { TypingAnimation } from "./components/TypingAnimation";
-import { ScrollProgress, AnimatedSection } from "./components/ScrollProgress";
+import { ScrollProgress } from "./components/ScrollProgress";
 import { SectionHeading } from "./components/SectionHeading";
 import { BackToTop } from "./components/BackToTop";
-import { SkillsProgress } from "./components/SkillsProgress";
-import { GitHubStats } from "./components/GitHubStats";
-import { Services } from "./components/Services";
-import { BlogArticles } from "./components/BlogArticles";
 
 import { experiences } from "./data/experiences";
 import { testimonials } from "./data/testimonials";
 import { certifications } from "./data/certifications";
 import { projects } from "./data/projects";
-import { roadmapItems } from "./data/roadmap";
 
 import RootLayout from "./components/RootLayout";
 
@@ -54,6 +52,10 @@ export default function Portfolio() {
       <div className="min-h-screen bg-background text-foreground relative">
         {/* Animated background */}
         <StaticGradientBackground />
+        <MouseGlow />
+
+        {/* Grid background pattern */}
+        <div className="fixed inset-0 grid-bg pointer-events-none z-0" />
 
         {/* Scroll progress indicator */}
         <ScrollProgress />
@@ -79,378 +81,470 @@ export default function Portfolio() {
           <ThemeToggle />
         </nav>
 
-        <div className="max-w-7xl mx-auto px-4 py-8 grid gap-16 relative z-10">
-          {/* Hero Section */}
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
+          {/* ===== HERO - Centered & Bold ===== */}
           <motion.section
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="pt-24 flex gap-8 flex-col min-h-[85vh] justify-center"
+            className="pt-24 pb-8 flex flex-col items-center text-center min-h-[80vh] justify-center"
           >
-            <Card className="w-full bg-transparent border-none shadow-none overflow-hidden flex items-center h-full flex-col gap-8 rounded-none md:flex-row md:gap-12">
-              {/* Profile Image */}
+            {/* Profile Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="relative mb-6"
+            >
+              <div className="w-[140px] h-[140px] sm:w-[160px] sm:h-[160px] rounded-full overflow-hidden mx-auto relative ring-2 ring-[#FF4D00]/20 ring-offset-4 ring-offset-background">
+                <img
+                  src="./portfolio-v1.webp"
+                  alt="Jay Mark Nicolas"
+                  className="object-cover object-center w-full h-full"
+                />
+              </div>
+              {/* Status badge */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="relative flex-shrink-0"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+                className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full glass-card text-xs font-mono font-medium whitespace-nowrap border border-green-500/30"
               >
-                <div
-                  className="w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] lg:w-[280px] lg:h-[280px] rounded-2xl overflow-hidden mx-auto relative glow-orange"
-                  style={{
-                    background:
-                      "linear-gradient(220.21deg, #691E02 3.31%, #C24617 63.27%)",
-                  }}
-                >
-                  <img
-                    src="./portfolio-v1.webp"
-                    alt="Jay Mark Nicolas"
-                    className="object-cover object-center w-full h-full"
-                  />
-                </div>
-                {/* Floating badge */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 }}
-                  className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full glass-card border-gradient text-sm font-medium whitespace-nowrap"
-                >
-                  <span className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                    Available for work
-                  </span>
-                </motion.div>
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+                  <span className="text-green-500">online</span>
+                </span>
               </motion.div>
+            </motion.div>
 
-              {/* Hero Content */}
-              <CardContent className="p-0 md:p-6 flex-1 space-y-4 flex flex-col justify-center text-center md:text-left">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                >
-                  <h1 className="font-bold text-2xl sm:text-4xl md:text-5xl text-foreground">
-                    Jay Mark Nicolas
-                  </h1>
-                  <div className="flex items-center text-muted-foreground text-sm md:text-base mt-2 justify-center md:justify-start">
-                    <MapPin className="h-4 w-4 mr-1 text-[#FF4D00]" />
-                    Bukidnon, Philippines
-                  </div>
-                </motion.div>
+            {/* Name */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              <h1 className="font-bold text-3xl sm:text-5xl md:text-6xl text-foreground tracking-tight">
+                Jay Mark Nicolas
+              </h1>
+              <div className="flex items-center text-muted-foreground text-sm mt-2 justify-center gap-1 font-mono">
+                <MapPin className="h-3.5 w-3.5 text-[#FF4D00]" />
+                <span>Bukidnon, Philippines</span>
+              </div>
+            </motion.div>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="my-4"
-                >
-                  <h2 className="text-xl md:text-3xl lg:text-4xl font-semibold">
-                    <span className="text-muted-foreground">I'm a </span>
-                    <TypingAnimation
-                      texts={roles}
-                      className="gradient-text"
-                      typingSpeed={80}
-                      deletingSpeed={40}
-                      pauseDuration={2500}
-                    />
-                  </h2>
-                </motion.div>
+            {/* Typing Role */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="mt-5"
+            >
+              <h2 className="text-lg md:text-2xl lg:text-3xl font-semibold">
+                <span className="text-muted-foreground">I'm a </span>
+                <TypingAnimation
+                  texts={roles}
+                  className="gradient-text"
+                  typingSpeed={80}
+                  deletingSpeed={40}
+                  pauseDuration={2500}
+                />
+              </h2>
+            </motion.div>
 
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
-                  className="text-muted-foreground text-base md:text-lg max-w-xl"
-                >
-                  Building high-performance, scalable web applications with a
-                  focus on exceptional user experiences and clean code.
-                </motion.p>
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="text-muted-foreground text-sm md:text-base max-w-xl mt-4 leading-relaxed"
+            >
+              Building high-performance, scalable web applications with a focus
+              on exceptional user experiences and clean code.
+            </motion.p>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 }}
-                  className="flex gap-3 mt-6 flex-wrap justify-center md:justify-start"
+            {/* Social/CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="flex gap-3 mt-6 flex-wrap justify-center"
+            >
+              <a
+                href="https://github.com/jaymarknicolas"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300 group font-mono text-xs"
                 >
-                  <a
-                    href="https://github.com/jaymarknicolas"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300 group"
+                  <Github className="h-4 w-4 mr-1.5 group-hover:text-[#FF4D00] transition-colors" />
+                  github
+                </Button>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/jay-mark-nicolas-157621258/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300 group font-mono text-xs"
+                >
+                  <Linkedin className="h-4 w-4 mr-1.5 group-hover:text-[#FF4D00] transition-colors" />
+                  linkedin
+                </Button>
+              </a>
+              <a href="mailto:jaymarknicolas.dev@gmail.com">
+                <Button
+                  size="sm"
+                  className="bg-[#FF4D00] hover:bg-[#FF4D00]/90 text-white transition-all duration-300 font-mono text-xs"
+                >
+                  <Mail className="h-4 w-4 mr-1.5" />
+                  get_in_touch()
+                </Button>
+              </a>
+            </motion.div>
+
+            {/* Terminal-style stat strip */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+              className="mt-12 w-full max-w-2xl"
+            >
+              <div className="terminal-card">
+                <div className="terminal-card-header">
+                  <span className="terminal-dot bg-red-500/80" />
+                  <span className="terminal-dot bg-yellow-500/80" />
+                  <span className="terminal-dot bg-green-500/80" />
+                  <span className="font-mono text-[10px] text-muted-foreground ml-2">
+                    ~/stats
+                  </span>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-border/50">
+                  {[
+                    { label: "experience", value: "4+ yrs" },
+                    { label: "projects", value: "20+" },
+                    { label: "tech_stack", value: "15+" },
+                    { label: "response", value: "<24h" },
+                  ].map((stat) => (
+                    <div
+                      key={stat.label}
+                      className="px-4 py-3 text-center"
                     >
-                      <Github className="h-5 w-5 mr-2 group-hover:text-[#FF4D00] transition-colors" />
-                      Github
-                    </Button>
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/jay-mark-nicolas-157621258/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300 group"
-                    >
-                      <Linkedin className="h-5 w-5 mr-2 group-hover:text-[#FF4D00] transition-colors" />
-                      LinkedIn
-                    </Button>
-                  </a>
-                  <a href="mailto:jaymarknicolas.dev@gmail.com">
-                    <Button
-                      size="lg"
-                      className="bg-[#FF4D00] hover:bg-[#FF4D00]/90 text-white shadow-lg shadow-[#FF4D00]/30 transition-all duration-300"
-                    >
-                      <Mail className="h-5 w-5 mr-2" />
-                      Get in Touch
-                    </Button>
-                  </a>
-                </motion.div>
-              </CardContent>
-            </Card>
+                      <div className="font-mono text-lg font-bold text-foreground">
+                        {stat.value}
+                      </div>
+                      <div className="font-mono text-[10px] text-muted-foreground tracking-wide">
+                        {stat.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
           </motion.section>
 
-          {/* About and Tech Stack Section */}
-          <AnimatedSection id="tech-stack-section" className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              <Card className="glass-card glass-card-hover border-gradient">
-                <CardHeader>
-                  <CardTitle className="text-foreground flex items-center gap-2">
-                    <span className="w-2 h-2 bg-[#FF4D00] rounded-full" />
-                    About Me
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground">
-                    I’m a full-stack software engineer specializing in building
-                    scalable and maintainable applications across all platforms.
-                    I focus on creating practical solutions that balance
-                    performance, reliability, and clean integration across the
-                    stack, turning complex requirements into functional,
-                    user-centric systems.
-                  </p>
-                  <p className="text-muted-foreground">
-                    I actively pursue side projects and experiment with new
-                    tools and workflows to sharpen problem-solving skills and
-                    adapt quickly to evolving technical challenges. I bring a
-                    mindset of discipline, resilience, and continuous
-                    improvement—qualities that help me contribute effectively in
-                    fast-paced, collaborative, and remote environments.
-                  </p>
-                </CardContent>
-              </Card>
+          {/* ===== ABOUT - Sticky Reveal ===== */}
+          <StickyRevealSection
+            header={<SectionHeading label="about" title="Get to Know Me" />}
+            itemCount={2}
+            heightPerItem={70}
+          >
+            {(progress) => (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <RevealItem
+                  index={0}
+                  total={2}
+                  progress={progress}
+                  className="md:col-span-2"
+                >
+                  <div className="terminal-card h-full">
+                    <div className="terminal-card-header">
+                      <span className="terminal-dot bg-red-500/80" />
+                      <span className="terminal-dot bg-yellow-500/80" />
+                      <span className="terminal-dot bg-green-500/80" />
+                      <span className="font-mono text-[10px] text-muted-foreground ml-2">
+                        about.md
+                      </span>
+                    </div>
+                    <div className="p-5 space-y-4">
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        I'm a full-stack software engineer specializing in
+                        building scalable and maintainable applications across
+                        all platforms. I focus on creating practical solutions
+                        that balance performance, reliability, and clean
+                        integration across the stack, turning complex
+                        requirements into functional, user-centric systems.
+                      </p>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        I actively pursue side projects and experiment with new
+                        tools and workflows to sharpen problem-solving skills
+                        and adapt quickly to evolving technical challenges. I
+                        bring a mindset of discipline, resilience, and
+                        continuous improvement—qualities that help me contribute
+                        effectively in fast-paced, collaborative, and remote
+                        environments.
+                      </p>
+                    </div>
+                  </div>
+                </RevealItem>
 
-              <Card className="glass-card glass-card-hover border-gradient">
-                <CardHeader>
-                  <CardTitle className="text-foreground flex items-center gap-2">
-                    <span className="w-2 h-2 bg-[#FF4D00] rounded-full" />
-                    Beyond Coding
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground">
-                    Beyond code, I focus on continuous learning, hands-on
-                    experimentation, and side projects to sharpen
-                    problem-solving skills and stay adaptable. I also enjoy
-                    trail running and hiking in the Philippines, activities that
-                    reinforce discipline, resilience, and a mindset of pushing
-                    beyond comfort zones—qualities I carry into my professional
-                    work.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
+                <RevealItem index={1} total={2} progress={progress}>
+                  <div className="flex flex-col gap-4">
+                    <div className="terminal-card flex-1">
+                      <div className="p-4 flex items-center gap-3">
+                        <Terminal className="h-4 w-4 text-[#FF4D00] flex-shrink-0" />
+                        <div>
+                          <div className="font-mono text-xs font-semibold text-foreground">
+                            Full-Stack Engineer
+                          </div>
+                          <div className="font-mono text-[10px] text-muted-foreground">
+                            React / Laravel / Node.js
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="terminal-card flex-1">
+                      <div className="p-4 flex items-center gap-3">
+                        <Code2 className="h-4 w-4 text-[#FF4D00] flex-shrink-0" />
+                        <div>
+                          <div className="font-mono text-xs font-semibold text-foreground">
+                            Open Source
+                          </div>
+                          <div className="font-mono text-[10px] text-muted-foreground">
+                            Active contributor
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="terminal-card flex-1">
+                      <div className="p-4">
+                        <p className="text-muted-foreground text-xs leading-relaxed">
+                          Beyond code — trail running & hiking across the
+                          Philippines. Discipline and resilience from the
+                          mountains.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </RevealItem>
+              </div>
+            )}
+          </StickyRevealSection>
 
-            {/* Tech Stack Section */}
-            <div>
-              <div className="flex justify-between items-start mb-4">
-                <SectionHeading
-                  title="TECH STACK"
-                  subtitle="Technologies I Work With"
-                />
+          {/* ===== PROJECTS - Sticky Reveal ===== */}
+          <StickyRevealSection
+            id="recent-projects-section"
+            header={<SectionHeading label="work" title="Featured Projects" />}
+            itemCount={4}
+            heightPerItem={60}
+          >
+            {(progress) => (
+              <>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {projects.slice(0, 3).map((project, index) => (
+                    <RevealItem
+                      key={index}
+                      index={index}
+                      total={4}
+                      progress={progress}
+                    >
+                      <ProjectCard project={project} index={index} />
+                    </RevealItem>
+                  ))}
+                </div>
+                <RevealItem
+                  index={3}
+                  total={4}
+                  progress={progress}
+                  className="mt-6 text-center"
+                >
+                  <SectionLink
+                    to="/all-projects"
+                    sectionId="recent-projects-section"
+                  >
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300 group font-mono text-xs"
+                    >
+                      <FolderOpen className="h-3.5 w-3.5 mr-1.5 group-hover:text-[#FF4D00] transition-colors" />
+                      view_all_projects()
+                      <ArrowRight className="h-3.5 w-3.5 ml-1.5 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </SectionLink>
+                </RevealItem>
+              </>
+            )}
+          </StickyRevealSection>
+
+          {/* ===== TECH STACK - Sticky Reveal by Category ===== */}
+          <StickyRevealSection
+            id="tech-stack-section"
+            header={
+              <div className="flex justify-between items-start">
+                <SectionHeading label="skills" title="Tech Stack" />
                 <SectionLink to="/tech-stack" sectionId="tech-stack-section">
                   <Button
                     variant="outline"
                     size="sm"
-                    className="glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300 group"
+                    className="glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300 group font-mono text-xs"
                   >
-                    <Code2 className="h-4 w-4 mr-2 group-hover:text-[#FF4D00] transition-colors" />
-                    View All
+                    <Code2 className="h-3.5 w-3.5 mr-1.5 group-hover:text-[#FF4D00] transition-colors" />
+                    explore()
                   </Button>
                 </SectionLink>
               </div>
-              <TechStack />
-            </div>
-          </AnimatedSection>
-
-          {/* Services Section */}
-          <AnimatedSection>
-            <SectionHeading title="Services" subtitle="What I Offer" />
-            <Services />
-          </AnimatedSection>
-
-          {/* Recent Projects Section - Moved up for better UX */}
-          <AnimatedSection id="recent-projects-section">
-            <div className="flex justify-between items-start mb-8">
-              <SectionHeading title="RECENT" subtitle="PROJECTS" />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {projects.slice(0, 3).map((project, index) => (
-                <ProjectCard key={index} project={project} index={index} />
-              ))}
-            </div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="mt-8 text-center"
-            >
-              <SectionLink to="/all-projects" sectionId="recent-projects-section">
-                <Button
-                  variant="outline"
-                  className="glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300 group"
-                >
-                  <FolderOpen className="h-4 w-4 mr-2 group-hover:text-[#FF4D00] transition-colors" />
-                  View All Projects
-                  <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </SectionLink>
-            </motion.div>
-          </AnimatedSection>
-
-          {/* Skills Progress Section */}
-          <AnimatedSection>
-            <SectionHeading title="Skills" subtitle="Proficiency Levels" />
-            <SkillsProgress />
-          </AnimatedSection>
-
-          {/* Experience and Certifications Grid */}
-          <AnimatedSection id="experience-section" className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Experience Section */}
-            <div>
-              <div className="flex justify-between items-start mb-6">
-                <SectionHeading
-                  title="My Journey"
-                  subtitle="Experience & Education"
-                />
-                <SectionLink to="/experience" sectionId="experience-section">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300 group"
+            }
+            itemCount={4}
+            heightPerItem={55}
+          >
+            {(progress) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {[
+                  { label: "Frontend", category: "frontend" as const },
+                  { label: "Backend", category: "backend" as const },
+                  { label: "Database", category: "database" as const },
+                  { label: "Tools & Platforms", category: "tools" as const },
+                ].map((group, index) => (
+                  <RevealItem
+                    key={group.category}
+                    index={index}
+                    total={4}
+                    progress={progress}
                   >
-                    <Briefcase className="h-4 w-4 mr-2 group-hover:text-[#FF4D00] transition-colors" />
-                    View All
-                  </Button>
-                </SectionLink>
+                    <div className="glass-card rounded-xl p-4 h-full">
+                      <h3 className="text-xs font-semibold font-mono text-[#FF4D00] mb-3 flex items-center gap-2 uppercase tracking-wider">
+                        <span className="w-1.5 h-1.5 bg-[#FF4D00] rounded-full" />
+                        {group.label}
+                        <span className="text-muted-foreground font-normal">
+                          ({techStack.filter((t) => t.category === group.category).length})
+                        </span>
+                      </h3>
+                      <div className="flex flex-wrap gap-1.5">
+                        {techStack
+                          .filter((t) => t.category === group.category)
+                          .map((tech) => (
+                            <span
+                              key={tech.name}
+                              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs rounded-lg bg-muted/50 text-muted-foreground hover:text-foreground hover:bg-[#FF4D00]/5 hover:border-[#FF4D00]/30 border border-transparent transition-all duration-300 cursor-default"
+                            >
+                              <span className="text-[#FF4D00]">{tech.icon}</span>
+                              {tech.name}
+                            </span>
+                          ))}
+                      </div>
+                    </div>
+                  </RevealItem>
+                ))}
               </div>
-              <div className="mt-2">
-                <ExperienceTimeline experiences={experiences} />
-              </div>
-            </div>
+            )}
+          </StickyRevealSection>
 
-            {/* Certifications Section */}
-            <div>
-              <div className="flex justify-between items-start mb-6">
-                <SectionHeading title="Certifications" subtitle="Credentials" />
+          {/* ===== EXPERIENCE - Sticky Scroll (custom) ===== */}
+          <section id="experience-section">
+            <StickyExperienceScroll experiences={experiences} />
+          </section>
+
+          {/* ===== CERTIFICATIONS - Sticky Reveal ===== */}
+          <StickyRevealSection
+            header={
+              <div className="flex justify-between items-start">
+                <SectionHeading label="credentials" title="Certifications" />
                 {certifications && certifications.length > 3 && (
-                  <SectionLink to="/certifications" sectionId="experience-section">
+                  <SectionLink
+                    to="/certifications"
+                    sectionId="experience-section"
+                  >
                     <Button
                       variant="outline"
                       size="sm"
-                      className="glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300 group"
+                      className="glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300 group font-mono text-xs"
                     >
-                      <Award className="h-4 w-4 mr-2 group-hover:text-[#FF4D00] transition-colors" />
-                      View All
+                      <Award className="h-3.5 w-3.5 mr-1.5 group-hover:text-[#FF4D00] transition-colors" />
+                      view_all()
                     </Button>
                   </SectionLink>
                 )}
               </div>
-              <div className="space-y-4">
+            }
+            itemCount={Math.min(certifications.length, 4)}
+            heightPerItem={60}
+          >
+            {(progress) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {certifications.slice(0, 4).map((cert, index) => (
-                  <motion.div
+                  <RevealItem
                     key={index}
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    index={index}
+                    total={Math.min(certifications.length, 4)}
+                    progress={progress}
                   >
                     <CertificationCard certification={cert} />
-                  </motion.div>
+                  </RevealItem>
                 ))}
               </div>
-            </div>
-          </AnimatedSection>
+            )}
+          </StickyRevealSection>
 
-          {/* Recommendations Section */}
-          <AnimatedSection>
-            <SectionHeading
-              title="Recommendations"
-              subtitle="What People Say"
-            />
-            <RecommendationSlider testimonials={testimonials} />
-          </AnimatedSection>
+          {/* ===== TESTIMONIALS - Sticky Reveal ===== */}
+          <StickyRevealSection
+            header={
+              <SectionHeading label="testimonials" title="What People Say" />
+            }
+            itemCount={1}
+            heightPerItem={90}
+          >
+            {(progress) => (
+              <RevealItem index={0} total={1} progress={progress}>
+                <RecommendationSlider testimonials={testimonials} />
+              </RevealItem>
+            )}
+          </StickyRevealSection>
 
-          {/* GitHub Stats Section */}
-          <AnimatedSection>
-            <SectionHeading title="GitHub" subtitle="Activity & Stats" />
-            <GitHubStats username="jaymarknicolas" />
-          </AnimatedSection>
-
-          {/* Roadmap Section */}
-          <AnimatedSection>
-            <SectionHeading title="Roadmap" subtitle="Learning & Goals" />
-            <Roadmap items={roadmapItems} />
-          </AnimatedSection>
-
-          {/* Blog/Articles Section */}
-          {/* <AnimatedSection>
-            <SectionHeading title="Blog" subtitle="Latest Articles" />
-            <BlogArticles username="jaymarknicolas" showFallback={true} />
-          </AnimatedSection> */}
-
-          {/* CTA Section */}
+          {/* ===== CTA ===== */}
           <CTASection />
 
-          {/* Footer */}
-          <footer className="text-center py-8 border-t border-border/50">
+          {/* ===== FOOTER ===== */}
+          <footer className="text-center py-6 border-t border-border/30">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="space-y-4"
+              className="space-y-3"
             >
-              <div className="flex justify-center gap-4">
+              <div className="flex justify-center gap-3">
                 <a
                   href="https://github.com/jaymarknicolas"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300"
+                  className="p-2 rounded-lg glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300"
                 >
-                  <Github className="h-5 w-5 text-muted-foreground hover:text-[#FF4D00]" />
+                  <Github className="h-4 w-4 text-muted-foreground hover:text-[#FF4D00]" />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/jay-mark-nicolas-157621258/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300"
+                  className="p-2 rounded-lg glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300"
                 >
-                  <Linkedin className="h-5 w-5 text-muted-foreground hover:text-[#FF4D00]" />
+                  <Linkedin className="h-4 w-4 text-muted-foreground hover:text-[#FF4D00]" />
                 </a>
                 <a
                   href="mailto:jaymarknicolas.dev@gmail.com"
-                  className="p-2 rounded-full glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300"
+                  className="p-2 rounded-lg glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300"
                 >
-                  <Mail className="h-5 w-5 text-muted-foreground hover:text-[#FF4D00]" />
+                  <Mail className="h-4 w-4 text-muted-foreground hover:text-[#FF4D00]" />
                 </a>
               </div>
-              <p className="text-muted-foreground text-sm">
-                © {new Date().getFullYear()} Jay Mark Nicolas. Crafted with
-                passion.
+              <p className="text-muted-foreground text-xs font-mono">
+                &copy; {new Date().getFullYear()} Jay Mark Nicolas
+                <span className="text-[#FF4D00] mx-2">|</span>
+                Crafted with passion
               </p>
             </motion.div>
           </footer>
