@@ -82,33 +82,6 @@ export function CTASection() {
 
             <ResumeDownloadButtonLarge />
           </motion.div>
-
-          {/* Quick stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="mt-12 pt-8 border-t border-border/50"
-          >
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {[
-                { label: "Years Experience", value: "4+" },
-                { label: "Projects Delivered", value: "20+" },
-                { label: "Tech Stack", value: "15+" },
-                { label: "Response Time", value: "<24h" },
-              ].map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold gradient-text">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-muted-foreground mt-1">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </div>
     </motion.section>

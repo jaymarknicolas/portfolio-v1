@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -86,11 +86,11 @@
   }
 
   .glass-card {
-    @apply bg-white/80 dark:bg-[#0f1629]/80 backdrop-blur-xl border border-gray-200/50 dark:border-white/10 shadow-xl shadow-black/5 dark:shadow-black/20;
+    @apply bg-white/80 dark:bg-[#0f1629]/80 backdrop-blur-xl border border-gray-200/50 dark:border-white/10;
   }
 
   .glass-card-hover {
-    @apply hover:bg-white/90 dark:hover:bg-[#0f1629]/90 hover:border-gray-300/50 dark:hover:border-white/20 hover:shadow-2xl hover:shadow-black/10 dark:hover:shadow-[#FF4D00]/5 transition-all duration-300;
+    @apply hover:bg-white/90 dark:hover:bg-[#0f1629]/90 hover:border-gray-300/50 dark:hover:border-white/20 transition-all duration-300;
   }
 
   /* Gradient text */
@@ -287,5 +287,42 @@
 
   .tab-inactive {
     @apply bg-muted hover:bg-muted/80 text-muted-foreground;
+  }
+
+  /* Code-inspired section label */
+  .code-label {
+    @apply font-mono text-xs tracking-wider text-[#FF4D00]/70 uppercase;
+  }
+
+  .code-label::before {
+    content: '// ';
+    @apply text-muted-foreground/50;
+  }
+
+  /* Terminal-style card */
+  .terminal-card {
+    @apply glass-card rounded-xl overflow-hidden;
+  }
+
+  .terminal-card-header {
+    @apply flex items-center gap-2 px-4 py-2.5 border-b border-border/50 bg-muted/30;
+  }
+
+  .terminal-dot {
+    @apply w-2.5 h-2.5 rounded-full;
+  }
+
+  /* Subtle grid background */
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255, 77, 0, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 77, 0, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .dark .grid-bg {
+    background-image:
+      linear-gradient(rgba(255, 77, 0, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 77, 0, 0.05) 1px, transparent 1px);
   }
 }

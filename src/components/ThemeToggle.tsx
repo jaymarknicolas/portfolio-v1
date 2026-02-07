@@ -4,7 +4,7 @@ import { Sun, Moon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
@@ -12,12 +12,12 @@ export function ThemeToggle() {
 
   return (
     <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
       className="relative p-2 rounded-full glass-card hover:border-[#FF4D00]/50 hover:bg-[#FF4D00]/5 transition-all duration-300 flex items-center justify-center size-10"
       aria-label="Toggle Theme"
     >
       <AnimatePresence mode="wait" initial={false}>
-        {theme === "dark" ? (
+        {resolvedTheme === "dark" ? (
           <motion.div
             key="sun"
             initial={{ rotate: -90, opacity: 0 }}
